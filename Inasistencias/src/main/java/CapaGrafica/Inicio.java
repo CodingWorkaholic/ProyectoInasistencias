@@ -57,18 +57,21 @@ public class Inicio extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 20)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(80, 80, 80));
         jLabel2.setText("Cédula:");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 350, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 35)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Iniciar Sesión");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 290, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 280, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 60)); // NOI18N
         jLabel1.setText("Bienvenido a SPRIITI");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 110, 630, -1));
 
         jLabel5.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 20)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(80, 80, 80));
         jLabel5.setText("Contraseña:");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 380, -1, -1));
 
@@ -82,10 +85,14 @@ public class Inicio extends javax.swing.JFrame {
 
         jButton3.setText("Salir");
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 510, -1, -1));
+
+        jTextField2.setBackground(new java.awt.Color(0, 100, 255));
         jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 380, 185, -1));
 
         jButton1.setText("Ingresar");
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 430, 156, 46));
+
+        jTextField1.setBackground(new java.awt.Color(0, 100, 255));
         jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 350, 231, -1));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/blanco.jpg"))); // NOI18N
