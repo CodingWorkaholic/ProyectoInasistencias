@@ -47,7 +47,6 @@ public class Inicio extends javax.swing.JFrame {
         jTextField2 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
         ITIimagen = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -59,12 +58,12 @@ public class Inicio extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 20)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(80, 80, 80));
         jLabel2.setText("Cédula:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 350, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 340, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 35)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Iniciar Sesión");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 280, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 270, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 60)); // NOI18N
         jLabel1.setText("Bienvenido a SPRIITI");
@@ -73,7 +72,7 @@ public class Inicio extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 20)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(80, 80, 80));
         jLabel5.setText("Contraseña:");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 380, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 370, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 20)); // NOI18N
         jLabel4.setText("Sistema Para el Registro de Inasistencias del ITI");
@@ -81,26 +80,33 @@ public class Inicio extends javax.swing.JFrame {
 
         jButton2.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 12)); // NOI18N
         jButton2.setText("Invitado");
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 510, -1, -1));
+        jButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 460, -1, -1));
 
         jButton3.setText("Salir");
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 510, -1, -1));
+        jButton3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 460, 50, -1));
 
-        jTextField2.setBackground(new java.awt.Color(0, 100, 255));
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 380, 185, -1));
+        jTextField2.setBackground(new java.awt.Color(0, 170, 255));
+        jTextField2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 370, 185, -1));
 
         jButton1.setText("Ingresar");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 430, 156, 46));
+        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 420, 156, 46));
 
-        jTextField1.setBackground(new java.awt.Color(0, 100, 255));
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 350, 231, -1));
+        jTextField1.setBackground(new java.awt.Color(0, 170, 255));
+        jTextField1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 340, 231, -1));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/blanco.jpg"))); // NOI18N
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 240, 390, 260));
-
-        ITIimagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ITI.jpg"))); // NOI18N
+        ITIimagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ITIBlur.jpeg"))); // NOI18N
         ITIimagen.setPreferredSize(new java.awt.Dimension(777, 800));
-        jPanel1.add(ITIimagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(-40, 0, 1600, 800));
+        jPanel1.add(ITIimagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(-40, 0, 1130, 800));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -115,6 +121,10 @@ public class Inicio extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -161,7 +171,6 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
