@@ -93,7 +93,7 @@ public class Inicio extends javax.swing.JFrame {
 
         jButton1.setText("Ingresar");
         jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 420, 156, 46));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 430, 156, 46));
 
         jTextField1.setBackground(new java.awt.Color(0, 170, 255));
         jTextField1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
