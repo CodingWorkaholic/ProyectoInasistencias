@@ -58,30 +58,30 @@ public class Inicio extends javax.swing.JFrame {
         jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("Salir");
         jButton1.setAlignmentY(0.0F);
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 380, 160, 30));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 430, 160, 60));
 
         jButton2.setBackground(new java.awt.Color(143, 227, 255));
         jButton2.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 20)); // NOI18N
         jButton2.setForeground(new java.awt.Color(0, 0, 0));
         jButton2.setText("Invitado");
         jButton2.setAlignmentY(0.0F);
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 380, 180, 30));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 440, 180, 60));
 
         jTextField2.setBackground(new java.awt.Color(143, 227, 255));
         jTextField2.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 12)); // NOI18N
-        jTextField2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jTextField2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 260, 190, -1));
+        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 260, 140, -1));
         jTextField2.getAccessibleContext().setAccessibleParent(jTextField2);
 
         jTextField1.setBackground(new java.awt.Color(143, 227, 255));
         jTextField1.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 12)); // NOI18N
         jTextField1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 290, 140, -1));
+        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 300, 140, -1));
         jTextField1.getAccessibleContext().setAccessibleParent(jTextField1);
 
         jLabel1.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 60)); // NOI18N
@@ -102,9 +102,9 @@ public class Inicio extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 20)); // NOI18N
         jLabel5.setText("Contraseña:");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 290, -1, 20));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 300, -1, 20));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Proyecto\\ProyectoInasistencias\\Inasistencias\\src\\main\\java\\Imagenes\\ITIBlur.jpeg")); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon("/Users/alex/Documents/GitHub/ProyectoInasistencias/Inasistencias/src/main/java/Imagenes/ITIBlur.jpeg")); // NOI18N
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1110, 550));
         jLabel6.getAccessibleContext().setAccessibleParent(this);
 
