@@ -84,23 +84,33 @@ public class Inicio extends javax.swing.JFrame {
         jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 300, 140, -1));
         jTextField1.getAccessibleContext().setAccessibleParent(jTextField1);
 
+        jLabel1.setBackground(new java.awt.Color(203, 203, 203));
         jLabel1.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 60)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(203, 203, 203));
         jLabel1.setText("Bienvenido a SPRIITI");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 40, 630, -1));
 
+        jLabel2.setBackground(new java.awt.Color(203, 203, 203));
         jLabel2.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 20)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(203, 203, 203));
         jLabel2.setText("Cédula:");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 260, -1, 20));
 
+        jLabel3.setBackground(new java.awt.Color(203, 203, 203));
         jLabel3.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 35)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(203, 203, 203));
         jLabel3.setText("Iniciar Sesión");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 190, -1, -1));
 
+        jLabel4.setBackground(new java.awt.Color(203, 203, 203));
         jLabel4.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 20)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(203, 203, 203));
         jLabel4.setText("Sistema Para el Registro de Inasistencias del ITI");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 120, -1, -1));
 
+        jLabel5.setBackground(new java.awt.Color(203, 203, 203));
         jLabel5.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 20)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(203, 203, 203));
         jLabel5.setText("Contraseña:");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 300, -1, 20));
 
