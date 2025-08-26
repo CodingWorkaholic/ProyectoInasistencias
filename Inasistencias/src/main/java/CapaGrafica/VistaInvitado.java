@@ -17,6 +17,7 @@ public class VistaInvitado extends javax.swing.JFrame {
      */
     public VistaInvitado() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -34,6 +35,7 @@ public class VistaInvitado extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Vista invitado");
 
         jPanel1.setBackground(new java.awt.Color(22, 33, 88));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -99,6 +101,10 @@ public class VistaInvitado extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        dispose();
+        setVisible(false);
+        Inicio ingreso= new Inicio();
+        ingreso.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

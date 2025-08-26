@@ -17,6 +17,7 @@ public class Modificar_Eliminar extends javax.swing.JFrame {
      */
     public Modificar_Eliminar() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -36,6 +37,7 @@ public class Modificar_Eliminar extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Modificación de inasistencias");
 
         jPanel1.setBackground(new java.awt.Color(22, 33, 88));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -121,6 +123,10 @@ public class Modificar_Eliminar extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        dispose();
+        setVisible(false);
+        Registrar ingreso= new Registrar();
+        ingreso.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

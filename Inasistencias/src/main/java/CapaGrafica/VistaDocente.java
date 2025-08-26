@@ -17,6 +17,7 @@ public class VistaDocente extends javax.swing.JFrame {
      */
     public VistaDocente() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -37,6 +38,7 @@ public class VistaDocente extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Vista docente");
         setBackground(new java.awt.Color(22, 33, 88));
         setPreferredSize(new java.awt.Dimension(1110, 550));
         setResizable(false);
@@ -89,6 +91,11 @@ public class VistaDocente extends javax.swing.JFrame {
         jButton4.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 20)); // NOI18N
         jButton4.setText("Volver");
         jButton4.setAlignmentY(0.0F);
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 430, 160, 60));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -106,6 +113,14 @@ public class VistaDocente extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        setVisible(false);
+        Inicio ingreso= new Inicio();
+        ingreso.setVisible(true);
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
