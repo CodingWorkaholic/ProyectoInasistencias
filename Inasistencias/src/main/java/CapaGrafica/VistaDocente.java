@@ -33,8 +33,8 @@ public class VistaDocente extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
+        jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(22, 33, 88));
@@ -45,7 +45,9 @@ public class VistaDocente extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(22, 33, 88));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setBackground(new java.awt.Color(233, 233, 233));
         jLabel1.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(233, 233, 233));
         jLabel1.setText("¿Cómo quieres gestionar tus inasistencias?");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 830, -1));
 
@@ -70,13 +72,7 @@ public class VistaDocente extends javax.swing.JFrame {
         jButton3.setAlignmentY(0.0F);
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 230, 160, 60));
 
-        jButton4.setBackground(new java.awt.Color(143, 227, 255));
-        jButton4.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 20)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(0, 0, 0));
-        jButton4.setText("Volver");
-        jButton4.setAlignmentY(0.0F);
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 430, 160, 60));
-
+        jPanel2.setBackground(new java.awt.Color(20, 20, 70));
         jPanel2.setForeground(new java.awt.Color(30, 30, 30));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -91,6 +87,13 @@ public class VistaDocente extends javax.swing.JFrame {
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, 780, 210));
+
+        jButton4.setBackground(new java.awt.Color(143, 227, 255));
+        jButton4.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 20)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(0, 0, 0));
+        jButton4.setText("Volver");
+        jButton4.setAlignmentY(0.0F);
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 430, 160, 60));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
