@@ -74,7 +74,6 @@ public class VistaInvitado extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(143, 227, 255));
         jButton1.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 20)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("Volver");
         jButton1.setAlignmentY(0.0F);
         jButton1.addActionListener(new java.awt.event.ActionListener() {

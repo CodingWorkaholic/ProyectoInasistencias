@@ -30,7 +30,7 @@ public class Modificar_Eliminar extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        Inasistencia = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -40,10 +40,10 @@ public class Modificar_Eliminar extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(22, 33, 88));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable1.setBackground(new java.awt.Color(22, 33, 88));
-        jTable1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 13)); // NOI18N
-        jTable1.setForeground(new java.awt.Color(22, 33, 88));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        Inasistencia.setBackground(new java.awt.Color(22, 33, 88));
+        Inasistencia.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 13)); // NOI18N
+        Inasistencia.setForeground(new java.awt.Color(22, 33, 88));
+        Inasistencia.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -51,7 +51,7 @@ public class Modificar_Eliminar extends javax.swing.JFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Docente", "Inicio", "Fin", "Grupo", "Turno"
+                "Inasistencia", "Inicio", "Fin", "Grupo", "Turno"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -62,14 +62,20 @@ public class Modificar_Eliminar extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(jTable1);
+        Inasistencia.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(Inasistencia);
+        if (Inasistencia.getColumnModel().getColumnCount() > 0) {
+            Inasistencia.getColumnModel().getColumn(0).setResizable(false);
+            Inasistencia.getColumnModel().getColumn(1).setResizable(false);
+            Inasistencia.getColumnModel().getColumn(2).setResizable(false);
+            Inasistencia.getColumnModel().getColumn(3).setResizable(false);
+            Inasistencia.getColumnModel().getColumn(4).setResizable(false);
+        }
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, -1));
 
         jButton1.setBackground(new java.awt.Color(143, 227, 255));
         jButton1.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 20)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("Eliminar");
         jButton1.setAlignmentY(0.0F);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -81,7 +87,6 @@ public class Modificar_Eliminar extends javax.swing.JFrame {
 
         jButton2.setBackground(new java.awt.Color(143, 227, 255));
         jButton2.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 20)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 0, 0));
         jButton2.setText("Volver");
         jButton2.setAlignmentY(0.0F);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -144,11 +149,11 @@ public class Modificar_Eliminar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable Inasistencia;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

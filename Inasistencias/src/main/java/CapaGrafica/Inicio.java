@@ -55,14 +55,12 @@ public class Inicio extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(143, 227, 255));
         jButton1.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 20)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("Salir");
         jButton1.setAlignmentY(0.0F);
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 430, 160, 60));
 
         jButton2.setBackground(new java.awt.Color(143, 227, 255));
         jButton2.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 20)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 0, 0));
         jButton2.setText("Invitado");
         jButton2.setAlignmentY(0.0F);
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 440, 180, 60));

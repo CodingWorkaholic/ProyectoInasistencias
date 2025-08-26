@@ -53,21 +53,18 @@ public class VistaDocente extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(143, 227, 255));
         jButton1.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 20)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("Modificar");
         jButton1.setAlignmentY(0.0F);
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 230, 160, 60));
 
         jButton2.setBackground(new java.awt.Color(143, 227, 255));
         jButton2.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 20)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 0, 0));
         jButton2.setText("Registrar");
         jButton2.setAlignmentY(0.0F);
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 230, 160, 60));
 
         jButton3.setBackground(new java.awt.Color(143, 227, 255));
         jButton3.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 20)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(0, 0, 0));
         jButton3.setText("Eliminar");
         jButton3.setAlignmentY(0.0F);
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 230, 160, 60));
@@ -90,7 +87,6 @@ public class VistaDocente extends javax.swing.JFrame {
 
         jButton4.setBackground(new java.awt.Color(143, 227, 255));
         jButton4.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 20)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(0, 0, 0));
         jButton4.setText("Volver");
         jButton4.setAlignmentY(0.0F);
         jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 430, 160, 60));
