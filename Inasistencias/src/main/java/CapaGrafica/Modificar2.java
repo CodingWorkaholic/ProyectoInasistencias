@@ -6,16 +6,16 @@ package CapaGrafica;
 
 /**
  *
- * @author alex
+ * @author Alex
  */
-public class Registrar extends javax.swing.JFrame {
+public class Modificar2 extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Registrar.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Modificar2.class.getName());
 
     /**
-     * Creates new form Registrar
+     * Creates new form Modificar2
      */
-    public Registrar() {
+    public Modificar2() {
         initComponents();
         setLocationRelativeTo(null);
     }
@@ -41,7 +41,6 @@ public class Registrar extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Registro de inasistencias");
 
         jPanel1.setBackground(new java.awt.Color(22, 33, 88));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -134,35 +133,37 @@ public class Registrar extends javax.swing.JFrame {
 
         jButton4.setBackground(new java.awt.Color(143, 227, 255));
         jButton4.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 20)); // NOI18N
-        jButton4.setText("Guardar");
+        jButton4.setText("Volver");
         jButton4.setAlignmentY(0.0F);
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 430, 160, 60));
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 430, 160, 60));
 
         jButton5.setBackground(new java.awt.Color(143, 227, 255));
         jButton5.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 20)); // NOI18N
-        jButton5.setText("Volver");
+        jButton5.setText("Guardar");
         jButton5.setAlignmentY(0.0F);
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 430, 160, 60));
+        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 430, 160, 60));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1098, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 548, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 538, Short.MAX_VALUE)
         );
 
         pack();
@@ -180,17 +181,17 @@ public class Registrar extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField4ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
-
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
         dispose();
         setVisible(false);
-        VistaDocente ingreso= new VistaDocente();
+        Modificar1 ingreso= new Modificar1();
         ingreso.setVisible(true);
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -214,7 +215,7 @@ public class Registrar extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new Registrar().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new Modificar2().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

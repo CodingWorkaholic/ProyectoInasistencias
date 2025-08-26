@@ -31,9 +31,9 @@ public class VistaDocente extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnModificar = new javax.swing.JButton();
+        btnRegistrar = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jButton4 = new javax.swing.JButton();
 
@@ -53,23 +53,38 @@ public class VistaDocente extends javax.swing.JFrame {
         jLabel1.setText("¿Cómo quieres gestionar tus inasistencias?");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 830, -1));
 
-        jButton1.setBackground(new java.awt.Color(143, 227, 255));
-        jButton1.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 20)); // NOI18N
-        jButton1.setText("Modificar");
-        jButton1.setAlignmentY(0.0F);
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 230, 160, 60));
+        btnModificar.setBackground(new java.awt.Color(143, 227, 255));
+        btnModificar.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 20)); // NOI18N
+        btnModificar.setText("Modificar");
+        btnModificar.setAlignmentY(0.0F);
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 230, 160, 60));
 
-        jButton2.setBackground(new java.awt.Color(143, 227, 255));
-        jButton2.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 20)); // NOI18N
-        jButton2.setText("Registrar");
-        jButton2.setAlignmentY(0.0F);
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 230, 160, 60));
+        btnRegistrar.setBackground(new java.awt.Color(143, 227, 255));
+        btnRegistrar.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 20)); // NOI18N
+        btnRegistrar.setText("Registrar");
+        btnRegistrar.setAlignmentY(0.0F);
+        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 230, 160, 60));
 
-        jButton3.setBackground(new java.awt.Color(143, 227, 255));
-        jButton3.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 20)); // NOI18N
-        jButton3.setText("Eliminar");
-        jButton3.setAlignmentY(0.0F);
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 230, 160, 60));
+        btnEliminar.setBackground(new java.awt.Color(143, 227, 255));
+        btnEliminar.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 20)); // NOI18N
+        btnEliminar.setText("Eliminar");
+        btnEliminar.setAlignmentY(0.0F);
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 230, 160, 60));
 
         jPanel2.setBackground(new java.awt.Color(20, 20, 70));
         jPanel2.setForeground(new java.awt.Color(30, 30, 30));
@@ -122,6 +137,31 @@ public class VistaDocente extends javax.swing.JFrame {
         ingreso.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        setVisible(false);
+        Registrar ingreso= new Registrar();
+        ingreso.setVisible(true);
+    }//GEN-LAST:event_btnRegistrarActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        setVisible(false);
+        Eliminar ingreso= new Eliminar();
+        ingreso.setVisible(true);
+        
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        setVisible(false);
+        Modificar1 ingreso= new Modificar1();
+        ingreso.setVisible(true);
+    }//GEN-LAST:event_btnModificarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -148,9 +188,9 @@ public class VistaDocente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnModificar;
+    private javax.swing.JButton btnRegistrar;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
