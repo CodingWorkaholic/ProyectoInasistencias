@@ -72,7 +72,7 @@ public class VistaInvitado extends javax.swing.JFrame {
             jTable1.getColumnModel().getColumn(4).setResizable(false);
         }
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, -1));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, 420));
 
         jButton1.setBackground(new java.awt.Color(143, 227, 255));
         jButton1.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 20)); // NOI18N
