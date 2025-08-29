@@ -6,16 +6,16 @@ package CapaGrafica;
 
 /**
  *
- * @author alex
+ * @author Alex
  */
-public class Modificar_Eliminar extends javax.swing.JFrame {
+public class Modificar1 extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Modificar_Eliminar.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Modificar1.class.getName());
 
     /**
-     * Creates new form Modificar_Eliminar
+     * Creates new form Modificar1
      */
-    public Modificar_Eliminar() {
+    public Modificar1() {
         initComponents();
         setLocationRelativeTo(null);
     }
@@ -37,7 +37,6 @@ public class Modificar_Eliminar extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Modificación de inasistencias");
 
         jPanel1.setBackground(new java.awt.Color(22, 33, 88));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -66,19 +65,12 @@ public class Modificar_Eliminar extends javax.swing.JFrame {
         });
         Inasistencia.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(Inasistencia);
-        if (Inasistencia.getColumnModel().getColumnCount() > 0) {
-            Inasistencia.getColumnModel().getColumn(0).setResizable(false);
-            Inasistencia.getColumnModel().getColumn(1).setResizable(false);
-            Inasistencia.getColumnModel().getColumn(2).setResizable(false);
-            Inasistencia.getColumnModel().getColumn(3).setResizable(false);
-            Inasistencia.getColumnModel().getColumn(4).setResizable(false);
-        }
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, -1));
 
         jButton1.setBackground(new java.awt.Color(143, 227, 255));
         jButton1.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 20)); // NOI18N
-        jButton1.setText("Eliminar");
+        jButton1.setText("Modificar");
         jButton1.setAlignmentY(0.0F);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,8 +92,8 @@ public class Modificar_Eliminar extends javax.swing.JFrame {
 
         jLabel1.setBackground(new java.awt.Color(233, 233, 233));
         jLabel1.setForeground(new java.awt.Color(233, 233, 233));
-        jLabel1.setText("Elimina tupla seleccionada");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 520, -1, -1));
+        jLabel1.setText("Antes selecciona una tupla");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 520, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -111,7 +103,7 @@ public class Modificar_Eliminar extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 550, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -119,13 +111,17 @@ public class Modificar_Eliminar extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        dispose();
+        setVisible(false);
+        Modificar2 ingreso= new Modificar2();
+        ingreso.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         dispose();
         setVisible(false);
-        Registrar ingreso= new Registrar();
+        VistaDocente ingreso= new VistaDocente();
         ingreso.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -151,7 +147,7 @@ public class Modificar_Eliminar extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new Modificar_Eliminar().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new Modificar1().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
