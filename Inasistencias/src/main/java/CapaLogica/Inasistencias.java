@@ -1,7 +1,6 @@
 package CapaLogica;
 
 public class Inasistencias {
-<<<<<<< Updated upstream
     private String id, fechaInicio, fechaFin;
 
     public String getId() {
@@ -26,23 +25,5 @@ public class Inasistencias {
 
     public void setFechaFin(String fechaFin) {
         this.fechaFin = fechaFin;
-=======
-    private String ci, pass;
-
-    public String getCi() {
-        return ci;
->>>>>>> Stashed changes
     }
-
-    public void setCi(String ci) {
-        this.ci = ci;
-    }
-
-    public String getPass() {
-        return pass;
-    }
-
-    public void setPass(String pass) {
-        this.pass = pass;
-    }    
 }
