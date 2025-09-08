@@ -53,7 +53,7 @@ public class Eliminar extends javax.swing.JFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Inasistencia", "Inicio", "Fin", "Grupo", "Turno"
+                "Inicio", "Fin", "Materia", "Grupo", "Turno"
             }
         ) {
             boolean[] canEdit = new boolean [] {
