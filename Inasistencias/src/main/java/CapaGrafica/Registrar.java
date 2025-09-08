@@ -66,7 +66,7 @@ public class Registrar extends javax.swing.JFrame {
         jLabel2.setBackground(new java.awt.Color(233, 233, 233));
         jLabel2.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(233, 233, 233));
-        jLabel2.setText("Turnos:");
+        jLabel2.setText("Materia:");
 
         jLabel3.setBackground(new java.awt.Color(233, 233, 233));
         jLabel3.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 36)); // NOI18N
@@ -172,10 +172,6 @@ public class Registrar extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
-
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField4ActionPerformed
@@ -191,6 +187,10 @@ public class Registrar extends javax.swing.JFrame {
         VistaDocente ingreso= new VistaDocente();
         ingreso.setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField3ActionPerformed
 
     /**
      * @param args the command line arguments

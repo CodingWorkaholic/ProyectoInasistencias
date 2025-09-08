@@ -65,7 +65,7 @@ public class Modificar2 extends javax.swing.JFrame {
         jLabel2.setBackground(new java.awt.Color(233, 233, 233));
         jLabel2.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(233, 233, 233));
-        jLabel2.setText("Turnos:");
+        jLabel2.setText("Materia:");
 
         jLabel3.setBackground(new java.awt.Color(233, 233, 233));
         jLabel3.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 36)); // NOI18N

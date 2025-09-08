@@ -46,17 +46,17 @@ public class Modificar1 extends javax.swing.JFrame {
         Inasistencia.setForeground(new java.awt.Color(22, 33, 88));
         Inasistencia.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Inasistencia", "Inicio", "Fin", "Grupo", "Turno"
+                "Inicio", "Fin", "Grupo", "Turno"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
