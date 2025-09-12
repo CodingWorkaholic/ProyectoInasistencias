@@ -54,6 +54,13 @@ public class Modificar1 extends javax.swing.JFrame {
         });
         Inasistencia.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(Inasistencia);
+        if (Inasistencia.getColumnModel().getColumnCount() > 0) {
+            Inasistencia.getColumnModel().getColumn(0).setResizable(false);
+            Inasistencia.getColumnModel().getColumn(1).setResizable(false);
+            Inasistencia.getColumnModel().getColumn(2).setResizable(false);
+            Inasistencia.getColumnModel().getColumn(3).setResizable(false);
+            Inasistencia.getColumnModel().getColumn(4).setResizable(false);
+        }
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, -1));
 
