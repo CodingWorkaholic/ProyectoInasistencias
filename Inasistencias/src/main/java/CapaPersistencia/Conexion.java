@@ -1,18 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package CapaPersistencia;
 
-import capaExcepcion.BDException;
+import CapaExcepcion.BDException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-/**
- *
- * @author alex
- */
 public class Conexion {
     public static Connection getConnection() throws BDException { //el throws es para traer varios errores a la vez
         Connection con= null;
@@ -23,5 +15,4 @@ public class Conexion {
         }
         return con;
     }
-    
 }
