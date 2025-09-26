@@ -1,8 +1,14 @@
 package CapaGrafica;
 
+import CapaExcepcion.PersonaExcepcion;
+import CapaLogica.Inasistencias;
+import CapaLogica.fachadaPersona;
+import javax.swing.JOptionPane;
+
 public class Registrar extends javax.swing.JFrame {
+    fachadaPersona fachada=new fachadaPersona();
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Registrar.class.getName());
+  
 
     /**
      * Creates new form Registrar
@@ -24,12 +30,12 @@ public class Registrar extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtFin = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jButton4 = new javax.swing.JButton();
+        txtMateria = new javax.swing.JTextField();
+        txtInicio = new javax.swing.JTextField();
+        btnGuardar = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -46,12 +52,12 @@ public class Registrar extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(233, 233, 233));
         jLabel1.setText("Inicio:");
 
-        jTextField2.setBackground(new java.awt.Color(143, 227, 255));
-        jTextField2.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 12)); // NOI18N
-        jTextField2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        txtFin.setBackground(new java.awt.Color(143, 227, 255));
+        txtFin.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 12)); // NOI18N
+        txtFin.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        txtFin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                txtFinActionPerformed(evt);
             }
         });
 
@@ -65,21 +71,21 @@ public class Registrar extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(233, 233, 233));
         jLabel3.setText("Fin:");
 
-        jTextField3.setBackground(new java.awt.Color(143, 227, 255));
-        jTextField3.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 12)); // NOI18N
-        jTextField3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        txtMateria.setBackground(new java.awt.Color(143, 227, 255));
+        txtMateria.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 12)); // NOI18N
+        txtMateria.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        txtMateria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                txtMateriaActionPerformed(evt);
             }
         });
 
-        jTextField4.setBackground(new java.awt.Color(143, 227, 255));
-        jTextField4.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 12)); // NOI18N
-        jTextField4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        txtInicio.setBackground(new java.awt.Color(143, 227, 255));
+        txtInicio.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 12)); // NOI18N
+        txtInicio.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        txtInicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                txtInicioActionPerformed(evt);
             }
         });
 
@@ -95,9 +101,9 @@ public class Registrar extends javax.swing.JFrame {
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtFin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtMateria, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtInicio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(52, 52, 52))
         );
         jPanel2Layout.setVerticalGroup(
@@ -106,30 +112,30 @@ public class Registrar extends javax.swing.JFrame {
                 .addGap(33, 33, 33)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(66, 66, 66)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtFin, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtMateria, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(33, 33, 33))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, 600, 330));
 
-        jButton4.setBackground(new java.awt.Color(143, 227, 255));
-        jButton4.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 20)); // NOI18N
-        jButton4.setText("Guardar");
-        jButton4.setAlignmentY(0.0F);
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btnGuardar.setBackground(new java.awt.Color(143, 227, 255));
+        btnGuardar.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 20)); // NOI18N
+        btnGuardar.setText("Guardar");
+        btnGuardar.setAlignmentY(0.0F);
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btnGuardarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 430, 160, 60));
+        jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 430, 160, 60));
 
         jButton5.setBackground(new java.awt.Color(143, 227, 255));
         jButton5.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 20)); // NOI18N
@@ -156,21 +162,49 @@ public class Registrar extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void txtFinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFinActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_txtFinActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void txtMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMateriaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_txtMateriaActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void txtInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtInicioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_txtInicioActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        
+        if (txtInicio.getText().isEmpty() || txtFin.getText().isEmpty() || txtMateria.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Haz de completar los campos");
+        } else{
+            Inasistencias ina = new Inasistencias();
+            
+            try{
+            String fechaInicio=txtInicio.getText();
+            String fechaFin=txtFin.getText();
+            String materia=txtMateria.getText();
+            
+           
+            
+            ina.setFechaInicio(fechaInicio);
+            ina.setFechaFin(fechaFin);
+            ina.setMateria(materia);
+            
+            fachada.guardarIna(ina);
+            
+            JOptionPane.showMessageDialog(null, "Se ha guardado con éxito");
+            }catch (PersonaExcepcion ex){
+                JOptionPane.showMessageDialog(this, ex.getMessage());
+                JOptionPane.showMessageDialog(this, "No se pudo guardar los datos");
+            } catch (Exception ex) {
+                System.getLogger(Registrar.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+            }
+            
+        }
+        
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
@@ -185,15 +219,15 @@ public class Registrar extends javax.swing.JFrame {
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton btnGuardar;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField txtFin;
+    private javax.swing.JTextField txtInicio;
+    private javax.swing.JTextField txtMateria;
     // End of variables declaration//GEN-END:variables
 }
