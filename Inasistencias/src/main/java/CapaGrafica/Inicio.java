@@ -1,13 +1,19 @@
 package CapaGrafica;
 
+import CapaExcepcion.PersonaExcepcion;
+import CapaLogica.LogIn;
+import CapaLogica.fachadaPersona;
 import java.awt.Image;
+import java.sql.SQLException;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 public class Inicio extends javax.swing.JFrame {
+    fachadaPersona fachada=new fachadaPersona();
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Inicio.class.getName());
+   
 
     public Inicio() {
          initComponents();
@@ -26,10 +32,10 @@ public class Inicio extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        btnIngresar = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
+        txtCi = new javax.swing.JTextField();
+        txtPass = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -44,16 +50,16 @@ public class Inicio extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setBackground(new java.awt.Color(143, 227, 255));
-        jButton1.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 20)); // NOI18N
-        jButton1.setText("Ingresar");
-        jButton1.setAlignmentY(0.0F);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnIngresar.setBackground(new java.awt.Color(143, 227, 255));
+        btnIngresar.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 20)); // NOI18N
+        btnIngresar.setText("Ingresar");
+        btnIngresar.setAlignmentY(0.0F);
+        btnIngresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnIngresarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 350, 160, 30));
+        jPanel1.add(btnIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 350, 160, 30));
 
         jButton2.setBackground(new java.awt.Color(143, 227, 255));
         jButton2.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 20)); // NOI18N
@@ -66,22 +72,22 @@ public class Inicio extends javax.swing.JFrame {
         });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 440, 180, 60));
 
-        jTextField2.setBackground(new java.awt.Color(143, 227, 255));
-        jTextField2.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 12)); // NOI18N
-        jTextField2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        txtCi.setBackground(new java.awt.Color(143, 227, 255));
+        txtCi.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 12)); // NOI18N
+        txtCi.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        txtCi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                txtCiActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 260, 140, -1));
-        jTextField2.getAccessibleContext().setAccessibleParent(jTextField2);
+        jPanel1.add(txtCi, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 260, 140, -1));
+        txtCi.getAccessibleContext().setAccessibleParent(txtCi);
 
-        jTextField1.setBackground(new java.awt.Color(143, 227, 255));
-        jTextField1.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 12)); // NOI18N
-        jTextField1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 300, 140, -1));
-        jTextField1.getAccessibleContext().setAccessibleParent(jTextField1);
+        txtPass.setBackground(new java.awt.Color(143, 227, 255));
+        txtPass.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 12)); // NOI18N
+        txtPass.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(txtPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 300, 140, -1));
+        txtPass.getAccessibleContext().setAccessibleParent(txtPass);
 
         jLabel1.setBackground(new java.awt.Color(203, 203, 203));
         jLabel1.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 60)); // NOI18N
@@ -142,9 +148,9 @@ public class Inicio extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void txtCiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCiActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_txtCiActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
@@ -159,13 +165,41 @@ public class Inicio extends javax.swing.JFrame {
         ingreso.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        dispose();
-        setVisible(false);
-        VistaDocente ingreso= new VistaDocente();
-        ingreso.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
+      
+        if (txtCi.getText().isEmpty() && txtPass.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Haz de insertar una cedula y una contraseña");
+            }else{
+            
+        
+            LogIn per= new LogIn();
+            try{
+                per=fachada.busquedaCI(txtCi.getText());
+                
+                if(per.getCi().equals(txtCi.getText()) && per.getPass().equals(txtPass.getText())){
+                            dispose();
+                            setVisible(false);
+                            VistaDocente ingreso= new VistaDocente();
+                            ingreso.setVisible(true);
+                }else{
+                    JOptionPane.showMessageDialog(this, "Ese usuario no existe");
+                }
+ 
+            }catch (PersonaExcepcion ex){
+               
+                JOptionPane.showMessageDialog(this, "No se pudo encontrar la persona");
+            } catch (SQLException ex) {
+                System.getLogger(Inicio.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+            } catch (Exception ex) {
+                System.getLogger(Inicio.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+            }
+        }
+        
+//        dispose();
+//        setVisible(false);
+//        VistaDocente ingreso= new VistaDocente();
+//        ingreso.setVisible(true);
+    }//GEN-LAST:event_btnIngresarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -176,16 +210,7 @@ public class Inicio extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
+     
         //</editor-fold>
         
 
@@ -203,7 +228,7 @@ public class Inicio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnIngresar;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
@@ -213,7 +238,7 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField txtCi;
+    private javax.swing.JTextField txtPass;
     // End of variables declaration//GEN-END:variables
 }

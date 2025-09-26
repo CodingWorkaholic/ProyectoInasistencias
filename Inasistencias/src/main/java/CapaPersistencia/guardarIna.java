@@ -57,11 +57,11 @@ public class guardarIna {
             
             if (rs.next()){ //si me ecuentra la persona...
                 
-                String Ci= rs.getString("ci");
+                String CI= rs.getString("ci");
                 String pass= rs.getString("pass");
               
                 
-                pers.setCi(ci);
+                pers.setCi(CI);
                 pers.setPass(pass);
                
                 
