@@ -6,20 +6,20 @@ import CapaPersistencia.guardarIna;
 import java.sql.SQLException;
 
 public class fachadaPersona {
-    public void guardarPersona (Login pers) throws Exception, SQLException{
+    public void guardarIna (Inasistencias ina) throws Exception, SQLException{
         guardarIna per= new guardarIna();
-        per.guardarPersona(pers);
+        per.guardarIna(ina);
     }
     
-    public Login busquedaCI (String ci) throws PersonaExcepcion, BDException, SQLException, Exception { 
-        Login per= new Login();
+    public LogIn busquedaCI (String ci) throws PersonaExcepcion, BDException, SQLException, Exception { 
+        LogIn per= new LogIn();
         guardarIna pers=new guardarIna();
         per=pers.busquedaCI(ci);
         return per;
     }
     
     public void eliminarPer (String ci) throws PersonaExcepcion, BDException, SQLException, Exception { 
-        Login per= new Login();
+        LogIn per= new LogIn();
         guardarIna pers=new guardarIna();
         
     }

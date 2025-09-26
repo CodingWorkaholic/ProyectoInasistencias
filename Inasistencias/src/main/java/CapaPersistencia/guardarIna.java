@@ -1,31 +1,35 @@
 package CapaPersistencia;
 
-import capaExcepcion.BDException;
-import capaExcepcion.PersonaExepcion;
-import capaLogica.Persona;
+import CapaExcepcion.BDException;
+import CapaExcepcion.PersonaExcepcion;
+import CapaLogica.LogIn;
+import CapaLogica.Inasistencias;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class guardarIna {
-    private static final String SQLguardar=("INSERT INTO persona.Persona(CI, Nombre, Apellido)Values (?,?,?)");
-    private static final String SQL_CONSULTA_PERSONA = ("SELECT * FROM persona.Persona where CI=?");
-    private static final String EliminarPersona =("DELETE FROM Persona where CI=?");
+    private static final String SQLguardar=("INSERT INTO inasistencias.inasistencias(id, fechaInicio, fechaFin, materia)Values (?,?,?,?)");
+    private static final String SQL_CONSULTA_PERSONA = ("SELECT * FROM inasistencias.usuarios where ci=?");
+    private static final String EliminarInasistencia =("DELETE FROM inasistencias where id=?");
     public Conexion cone=new Conexion();
     public PreparedStatement ps; //prepara los datos
     public ResultSet rs; //muestra los datos
     private ResultSet resultado; 
     
-    public void guardarPersona(Persona pers) throws Exception,BDException {
+    public void guardarIna(Inasistencias ina) throws Exception,BDException {
     try{
         int resultado=0; //variable que guarda la conexión
         Connection con= cone.getConnection(); //Me conecto
         ps=(PreparedStatement)con.prepareStatement(SQLguardar); //"con" es la variable en la cual se guarda la conexión
         
-        ps.setString(1,pers.getCi());
-        ps.setString(2,pers.getNombre());
-        ps.setString(3,pers.getApellido());
+        ps.setString(1,ina.getId());
+        ps.setString(2,ina.getFechaInicio());
+        ps.setString(3,ina.getFechaFin());
+        ps.setString(4,ina.getMateria());
+
+
         
        resultado=ps.executeUpdate();
        System.out.println(resultado);
@@ -41,8 +45,8 @@ public class guardarIna {
      * @throws Exception
      * @throws BDException
      */
-    public Persona busquedaCI (String ci) throws Exception, BDException, PersonaExepcion{
-        Persona pers= new Persona();
+    public LogIn busquedaCI (String ci) throws Exception, BDException, PersonaExcepcion{
+        LogIn pers= new LogIn();
         
         try{
             Connection con;
@@ -53,37 +57,37 @@ public class guardarIna {
             
             if (rs.next()){ //si me ecuentra la persona...
                 
-                String Ci= rs.getString("CI");
-                String Nombre= rs.getString("Nombre");
-                String Apellido= rs.getString("Apellido");
+                String Ci= rs.getString("ci");
+                String pass= rs.getString("pass");
+              
                 
-                pers.setCi(Ci);
-                pers.setNombre(Nombre);
-                pers.setApellido(Apellido);
+                pers.setCi(ci);
+                pers.setPass(pass);
+               
                 
             }else{ // error
-                throw new PersonaExepcion("La persona no se encuentra en la base de datos");
+                throw new PersonaExcepcion("La persona no se encuentra en la base de datos");
             }
             con.close(); //cierro la consulta
         
             
         }catch (Exception e){
             System.out.println(e);
-            throw new PersonaExepcion("No se puede obtener la persona");
+            throw new PersonaExcepcion("No se puede obtener la persona");
         }
         return pers; // devuelve la persona
     }
     
-    public void eliminarPer (String ci) throws Exception, BDException, PersonaExepcion{
+    public void eliminarIna (String id) throws Exception, BDException, PersonaExcepcion{
         String eliminacion = null;
         
-       Persona pers=new Persona();
+       Inasistencias ina=new Inasistencias();
         
        try{
            Connection con;
            con= cone.getConnection();
-           ps=(PreparedStatement)con.prepareStatement(EliminarPersona);
-           ps.setString(1, ci);
+           ps=(PreparedStatement)con.prepareStatement(EliminarInasistencia);
+           ps.setString(1, id);
            int resultado = ps.executeUpdate();
            
            if(rs.next()) {

@@ -1,6 +1,6 @@
 package CapaLogica;
 
-public class Login {
+public class LogIn {
     private String ci, pass;
 
     public String getCi() {

@@ -1,7 +1,7 @@
 package CapaLogica;
 
 public class Inasistencias {
-    private String id, fechaInicio, fechaFin;
+    private String id, fechaInicio, fechaFin, materia;
 
     public String getId() {
         return id;
@@ -26,4 +26,13 @@ public class Inasistencias {
     public void setFechaFin(String fechaFin) {
         this.fechaFin = fechaFin;
     }
+    
+       public String getMateria() {
+        return materia;
+    }
+
+    public void setMateria(String materia) {
+        this.materia = materia;
+    }
+    
 }
