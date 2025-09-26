@@ -65,6 +65,8 @@ INSERT INTO usuarios VALUES ('10000007', 'gamma003');
 INSERT INTO usuarios VALUES ('10000008', 'delta004');
 INSERT INTO usuarios VALUES ('10000009', 'epsilon5');
 INSERT INTO usuarios VALUES ('10000010', 'zeta006');
+insert into usuarios values ('58046935', 'alexbogo');
+insert into usuarios values ('57909578', 'salvamed');
 
 -- Inasistencias (id se autogenera 1..10)
 INSERT INTO inasistencias (fechaInicio, fechaFin, materia) VALUES ('2025-03-01', '2025-03-02', 'Matemática');
@@ -137,3 +139,4 @@ INSERT INTO inasistenciaDocente VALUES (7, '20000007', 'Grupo7');
 INSERT INTO inasistenciaDocente VALUES (8, '20000008', 'Grupo8');
 INSERT INTO inasistenciaDocente VALUES (9, '20000009', 'Grupo9');
 INSERT INTO inasistenciaDocente VALUES (10, '20000010', 'Grupo10');
+
