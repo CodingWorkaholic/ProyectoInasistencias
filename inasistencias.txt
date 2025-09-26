@@ -11,6 +11,7 @@ CREATE TABLE inasistencias (
 id varchar(20) not null, 
 fechaInicio date not null, 
 fechaFin date not null,
+materia varchar(20) not null,
 PRIMARY key (id)
 );
 
@@ -150,3 +151,4 @@ INSERT INTO inasistenciaDocente VALUES ('INA007', '20000007', 'Grupo7');
 INSERT INTO inasistenciaDocente VALUES ('INA008', '20000008', 'Grupo8');
 INSERT INTO inasistenciaDocente VALUES ('INA009', '20000009', 'Grupo9');
 INSERT INTO inasistenciaDocente VALUES ('INA010', '20000010', 'Grupo10');
+
