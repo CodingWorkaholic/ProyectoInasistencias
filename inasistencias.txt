@@ -1,0 +1,66 @@
+CREATE DATABASE inasistencias;
+use inasistencias;
+
+CREATE TABLE usuarios (
+ci varchar(10) not null, 
+pass varchar(20) not null,
+PRIMARY key (ci)
+);
+
+CREATE TABLE inasistencias (
+id varchar(20) not null, 
+fechaInicio date not null, 
+fechaFin date not null,
+PRIMARY key (id)
+);
+
+CREATE TABLE docentes (
+ci varchar(10) not null, 
+nombre varchar(20) not null, 
+apellido varchar(20) not null,
+PRIMARY key (ci)
+);
+
+CREATE TABLE grupos (
+nombre varchar(20) not null,
+turno varchar(20) not null,
+PRIMARY key (nombre)
+);
+
+CREATE TABLE login (
+ciUsuario varchar(10) not null,
+ciDocente varchar(10) not null,
+PRIMARY key (ciUsuario, ciDocente),
+FOREIGN key (ciUsuario) REFERENCES usuarios(ci),
+FOREIGN key (ciDocente) REFERENCES docentes(ci)
+);
+
+CREATE TABLE gruposDocente (
+nombreGrupo varchar(20) not null,
+ciDocente varchar(10) not null,
+PRIMARY key (nombreGrupo, ciDocente),
+FOREIGN key (nombreGrupo) REFERENCES grupos(nombre),
+FOREIGN key (ciDocente) REFERENCES docentes(ci)
+);
+
+CREATE TABLE inasistenciaDocente (
+idInasistencia varchar(20) not null, 
+ciDocente varchar(10) not null,
+nombreGrupo varchar(20) not null,
+PRIMARY key (idInasistencia, ciDocente, nombreGrupo),
+FOREIGN key (idInasistencia) REFERENCES inasistencias(id),
+FOREIGN key (ciDocente) REFERENCES docentes(ci),
+FOREIGN key (nombreGrupo) REFERENCES grupos(nombre)
+);
+
+Usuarios
+INSERT INTO usuarios (ci, pass) VALUES ('11223344', 'clave123');
+INSERT INTO usuarios (ci, pass) VALUES ('22334455', 'codigo456');
+
+Docentes
+INSERT INTO docentes (ci, nombre, apellido) VALUES ('11223344', 'Juan', 'Pérez');
+INSERT INTO docentes (ci, nombre, apellido) VALUES ('22334455', 'María', 'Gómez');
+
+Grupos
+INSERT INTO grupos (nombre, turno) VALUES ('Programacion', 'Matutino');
+INSERT INTO grupos (nombre, turno) VALUES ('Legislacion', 'Vespertino');
