@@ -1,26 +1,26 @@
 package CapaLogica;
 
-import capaExcepcion.BDException;
-import capaExcepcion.PersonaExepcion;
-import capaPersistencia.guardarPersona;
+import CapaExcepcion.BDException;
+import CapaExcepcion.PersonaExcepcion;
+import CapaPersistencia.guardarIna;
 import java.sql.SQLException;
 
 public class fachadaPersona {
-    public void guardarPersona (Persona pers) throws Exception, SQLException{
-        guardarPersona per= new guardarPersona();
+    public void guardarPersona (Login pers) throws Exception, SQLException{
+        guardarIna per= new guardarIna();
         per.guardarPersona(pers);
     }
     
-    public Persona busquedaCI (String ci) throws PersonaExepcion, BDException, SQLException, Exception { 
-        Persona per= new Persona();
-        guardarPersona pers=new guardarPersona();
+    public Login busquedaCI (String ci) throws PersonaExcepcion, BDException, SQLException, Exception { 
+        Login per= new Login();
+        guardarIna pers=new guardarIna();
         per=pers.busquedaCI(ci);
         return per;
     }
     
-    public void eiminarPer (String ci) throws PersonaExepcion, BDException, SQLException, Exception { 
-        Persona per= new Persona();
-        guardarPersona pers=new guardarPersona();
+    public void eliminarPer (String ci) throws PersonaExcepcion, BDException, SQLException, Exception { 
+        Login per= new Login();
+        guardarIna pers=new guardarIna();
         
     }
 }
