@@ -8,7 +8,7 @@ PRIMARY key (ci)
 );
 
 CREATE TABLE inasistencias (
-id varchar(20) auto_increment not null, 
+id int(20)  not null AUTO_INCREMENT, 
 fechaInicio date not null, 
 fechaFin date not null,
 materia varchar(20) not null,
@@ -45,7 +45,7 @@ FOREIGN key (ciDocente) REFERENCES docentes(ci)
 );
 
 CREATE TABLE inasistenciaDocente (
-idInasistencia varchar(20) not null, 
+idInasistencia int(20) not null, 
 ciDocente varchar(10) not null,
 nombreGrupo varchar(20) not null,
 PRIMARY key (idInasistencia, ciDocente, nombreGrupo),
@@ -53,81 +53,3 @@ FOREIGN key (idInasistencia) REFERENCES inasistencias(id),
 FOREIGN key (ciDocente) REFERENCES docentes(ci),
 FOREIGN key (nombreGrupo) REFERENCES grupos(nombre)
 );
-
-INSERT INTO usuarios VALUES ('10000001', 'pass1234');
-INSERT INTO usuarios VALUES ('10000002', 'clave5678');
-INSERT INTO usuarios VALUES ('10000003', 'admin2025');
-INSERT INTO usuarios VALUES ('10000004', 'segura90');
-INSERT INTO usuarios VALUES ('10000005', 'alpha001');
-INSERT INTO usuarios VALUES ('10000006', 'beta002');
-INSERT INTO usuarios VALUES ('10000007', 'gamma003');
-INSERT INTO usuarios VALUES ('10000008', 'delta004');
-INSERT INTO usuarios VALUES ('10000009', 'epsilon5');
-INSERT INTO usuarios VALUES ('10000010', 'zeta006');
-
-INSERT INTO inasistencias VALUES ('INA001', '2025-03-01', '2025-03-02', 'Matemática');
-INSERT INTO inasistencias VALUES ('INA002', '2025-03-05', '2025-03-05', 'Historia');
-INSERT INTO inasistencias VALUES ('INA003', '2025-03-07', '2025-03-09', 'Física');
-INSERT INTO inasistencias VALUES ('INA004', '2025-03-10', '2025-03-11', 'Química');
-INSERT INTO inasistencias VALUES ('INA005', '2025-03-15', '2025-03-15', 'Literatura');
-INSERT INTO inasistencias VALUES ('INA006', '2025-03-18', '2025-03-19', 'Programación');
-INSERT INTO inasistencias VALUES ('INA007', '2025-03-22', '2025-03-23', 'Geografía');
-INSERT INTO inasistencias VALUES ('INA008', '2025-03-25', '2025-03-26', 'Biología');
-INSERT INTO inasistencias VALUES ('INA009', '2025-03-28', '2025-03-28', 'Inglés');
-INSERT INTO inasistencias VALUES ('INA010', '2025-03-30', '2025-03-31', 'Ética');
-
-INSERT INTO docentes VALUES ('20000001', 'Ana', 'García');
-INSERT INTO docentes VALUES ('20000002', 'Luis', 'Martínez');
-INSERT INTO docentes VALUES ('20000003', 'Sofía', 'Rodríguez');
-INSERT INTO docentes VALUES ('20000004', 'Carlos', 'Pérez');
-INSERT INTO docentes VALUES ('20000005', 'Lucía', 'Fernández');
-INSERT INTO docentes VALUES ('20000006', 'Diego', 'López');
-INSERT INTO docentes VALUES ('20000007', 'María', 'Suárez');
-INSERT INTO docentes VALUES ('20000008', 'Jorge', 'Silva');
-INSERT INTO docentes VALUES ('20000009', 'Valentina', 'Torres');
-INSERT INTO docentes VALUES ('20000010', 'Andrés', 'Cabrera');
-
-INSERT INTO grupos VALUES ('Grupo1', 'Matutino');
-INSERT INTO grupos VALUES ('Grupo2', 'Vespertino');
-INSERT INTO grupos VALUES ('Grupo3', 'Nocturno');
-INSERT INTO grupos VALUES ('Grupo4', 'Matutino');
-INSERT INTO grupos VALUES ('Grupo5', 'Vespertino');
-INSERT INTO grupos VALUES ('Grupo6', 'Nocturno');
-INSERT INTO grupos VALUES ('Grupo7', 'Matutino');
-INSERT INTO grupos VALUES ('Grupo8', 'Vespertino');
-INSERT INTO grupos VALUES ('Grupo9', 'Nocturno');
-INSERT INTO grupos VALUES ('Grupo10', 'Matutino');
-
-INSERT INTO login VALUES ('10000001', '20000001');
-INSERT INTO login VALUES ('10000002', '20000002');
-INSERT INTO login VALUES ('10000003', '20000003');
-INSERT INTO login VALUES ('10000004', '20000004');
-INSERT INTO login VALUES ('10000005', '20000005');
-INSERT INTO login VALUES ('10000006', '20000006');
-INSERT INTO login VALUES ('10000007', '20000007');
-INSERT INTO login VALUES ('10000008', '20000008');
-INSERT INTO login VALUES ('10000009', '20000009');
-INSERT INTO login VALUES ('10000010', '20000010');
-
-INSERT INTO gruposDocente VALUES ('Grupo1', '20000001');
-INSERT INTO gruposDocente VALUES ('Grupo2', '20000002');
-INSERT INTO gruposDocente VALUES ('Grupo3', '20000003');
-INSERT INTO gruposDocente VALUES ('Grupo4', '20000004');
-INSERT INTO gruposDocente VALUES ('Grupo5', '20000005');
-INSERT INTO gruposDocente VALUES ('Grupo6', '20000006');
-INSERT INTO gruposDocente VALUES ('Grupo7', '20000007');
-INSERT INTO gruposDocente VALUES ('Grupo8', '20000008');
-INSERT INTO gruposDocente VALUES ('Grupo9', '20000009');
-INSERT INTO gruposDocente VALUES ('Grupo10', '20000010');
-
-INSERT INTO inasistenciaDocente VALUES ('INA001', '20000001', 'Grupo1');
-INSERT INTO inasistenciaDocente VALUES ('INA002', '20000002', 'Grupo2');
-INSERT INTO inasistenciaDocente VALUES ('INA003', '20000003', 'Grupo3');
-INSERT INTO inasistenciaDocente VALUES ('INA004', '20000004', 'Grupo4');
-INSERT INTO inasistenciaDocente VALUES ('INA005', '20000005', 'Grupo5');
-INSERT INTO inasistenciaDocente VALUES ('INA006', '20000006', 'Grupo6');
-INSERT INTO inasistenciaDocente VALUES ('INA007', '20000007', 'Grupo7');
-INSERT INTO inasistenciaDocente VALUES ('INA008', '20000008', 'Grupo8');
-INSERT INTO inasistenciaDocente VALUES ('INA009', '20000009', 'Grupo9');
-INSERT INTO inasistenciaDocente VALUES ('INA010', '20000010', 'Grupo10');
-
