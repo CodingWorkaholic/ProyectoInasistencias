@@ -12,6 +12,7 @@ id int(20)  not null AUTO_INCREMENT,
 fechaInicio date not null, 
 fechaFin date not null,
 materia varchar(20) not null,
+grupo varchar(20) not null,
 PRIMARY key (id)
 );
 
@@ -47,11 +48,9 @@ FOREIGN key (ciDocente) REFERENCES docentes(ci)
 CREATE TABLE inasistenciaDocente (
 idInasistencia int(20) not null, 
 ciDocente varchar(10) not null,
-nombreGrupo varchar(20) not null,
 PRIMARY key (idInasistencia, ciDocente, nombreGrupo),
 FOREIGN key (idInasistencia) REFERENCES inasistencias(id),
-FOREIGN key (ciDocente) REFERENCES docentes(ci),
-FOREIGN key (nombreGrupo) REFERENCES grupos(nombre)
+FOREIGN key (ciDocente) REFERENCES docentes(ci)
 );
 
 -- Usuarios
@@ -139,4 +138,5 @@ INSERT INTO inasistenciaDocente VALUES (7, '20000007', 'Grupo7');
 INSERT INTO inasistenciaDocente VALUES (8, '20000008', 'Grupo8');
 INSERT INTO inasistenciaDocente VALUES (9, '20000009', 'Grupo9');
 INSERT INTO inasistenciaDocente VALUES (10, '20000010', 'Grupo10');
+
 
