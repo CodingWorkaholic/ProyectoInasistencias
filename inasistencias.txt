@@ -48,7 +48,7 @@ FOREIGN key (ciDocente) REFERENCES docentes(ci)
 CREATE TABLE inasistenciaDocente (
 idInasistencia int(20) not null, 
 ciDocente varchar(10) not null,
-PRIMARY key (idInasistencia, ciDocente, nombreGrupo),
+PRIMARY key (idInasistencia, ciDocente),
 FOREIGN key (idInasistencia) REFERENCES inasistencias(id),
 FOREIGN key (ciDocente) REFERENCES docentes(ci)
 );
@@ -138,5 +138,6 @@ INSERT INTO inasistenciaDocente VALUES (7, '20000007', 'Grupo7');
 INSERT INTO inasistenciaDocente VALUES (8, '20000008', 'Grupo8');
 INSERT INTO inasistenciaDocente VALUES (9, '20000009', 'Grupo9');
 INSERT INTO inasistenciaDocente VALUES (10, '20000010', 'Grupo10');
+
 
 
