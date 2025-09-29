@@ -4,15 +4,18 @@ import CapaExcepcion.BDException;
 import CapaExcepcion.PersonaExcepcion;
 import CapaLogica.LogIn;
 import CapaLogica.Inasistencias;
+import CapaLogica.InasistenciasDocente;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class guardarIna {
-    private static final String SQLguardar=("INSERT INTO inasistencias.inasistencias(id, fechaInicio, fechaFin, materia)Values (?,?,?,?)");
+    private static final String SQLguardar=("INSERT INTO inasistencias.inasistencias(id, fechaInicio, fechaFin, materia, grupo)Values (?,?,?,?,?)");
+     private static final String GuardarInaDocente=("INSERT INTO inasistencias.inasistenciaDocente(idInasistencia, ciDocente)Values (?,?)");
     private static final String SQL_CONSULTA_PERSONA = ("SELECT * FROM inasistencias.usuarios where ci=?");
     private static final String EliminarInasistencia =("DELETE FROM inasistencias where id=?");
+    private static final String BusquedaIna = ("SELECT * FROM inasistencias.usuarios where ci=?");
     public Conexion cone=new Conexion();
     public PreparedStatement ps; //prepara los datos
     public ResultSet rs; //muestra los datos
@@ -28,7 +31,7 @@ public class guardarIna {
         ps.setString(2,ina.getFechaInicio());
         ps.setString(3,ina.getFechaFin());
         ps.setString(4,ina.getMateria());
-
+        ps.setString(5,ina.getGrupo());
 
         
        resultado=ps.executeUpdate();
@@ -38,6 +41,27 @@ public class guardarIna {
             
         }
     }
+    
+    public void guardarInaDocente(InasistenciasDocente inaDoc) throws Exception,BDException {
+    try{
+        int resultado=0; //variable que guarda la conexión
+        Connection con= cone.getConnection(); //Me conecto
+        ps=(PreparedStatement)con.prepareStatement(GuardarInaDocente); //"con" es la variable en la cual se guarda la conexión
+        
+        System.out.println(inaDoc);
+        ps.setString(1,inaDoc.getId());
+        ps.setString(2,inaDoc.getCi());
+        
+
+        
+       resultado=ps.executeUpdate();
+       System.out.println(resultado);
+    }   catch (SQLException sqle) {
+        throw new Exception("Error en base de datos");
+            
+        }
+    }
+    
     /**
      *
      * @param ci

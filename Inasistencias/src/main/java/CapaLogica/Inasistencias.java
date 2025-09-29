@@ -1,7 +1,7 @@
 package CapaLogica;
 
 public class Inasistencias {
-    private String id, fechaInicio, fechaFin, materia;
+    private String id, fechaInicio, fechaFin, materia, grupo;
 
     public String getId() {
         return id;
@@ -34,5 +34,15 @@ public class Inasistencias {
     public void setMateria(String materia) {
         this.materia = materia;
     }
+
+    public String getGrupo() {
+        return grupo;
+    }
+
+    public void setGrupo(String grupo) {
+        this.grupo = grupo;
+    }
+    
+    
     
 }

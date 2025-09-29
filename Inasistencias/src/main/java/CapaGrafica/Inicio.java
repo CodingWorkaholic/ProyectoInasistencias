@@ -12,12 +12,14 @@ import javax.swing.JOptionPane;
 
 public class Inicio extends javax.swing.JFrame {
     fachadaPersona fachada=new fachadaPersona();
+    public String cedulaDocente;
     
    
 
     public Inicio() {
          initComponents();
         setLocationRelativeTo(null);
+        String cedulaDocente= txtCi.getText();
        //SetImageLabel(ITIimagen, "src/java/main/Imagenes/ITI.jpg");
        
     }
@@ -177,10 +179,13 @@ public class Inicio extends javax.swing.JFrame {
                 per=fachada.busquedaCI(txtCi.getText());
                 
                 if(per.getCi().equals(txtCi.getText()) && per.getPass().equals(txtPass.getText())){
+                    
+                     String cedulaDocente= txtCi.getText();
                             dispose();
                             setVisible(false);
                             VistaDocente ingreso= new VistaDocente();
                             ingreso.setVisible(true);
+                            System.out.println(cedulaDocente);
                 }else{
                     JOptionPane.showMessageDialog(this, "Ese usuario no existe");
                 }
@@ -193,6 +198,7 @@ public class Inicio extends javax.swing.JFrame {
             } catch (Exception ex) {
                 System.getLogger(Inicio.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
             }
+            
         }
         
 //        dispose();
