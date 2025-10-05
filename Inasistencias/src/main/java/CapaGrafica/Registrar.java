@@ -10,6 +10,8 @@ import javax.swing.JOptionPane;
 public class Registrar extends javax.swing.JFrame {
     fachadaPersona fachada=new fachadaPersona();
     Inicio i=new Inicio();
+    public String idDocente;
+    int idGenerado;
     
   
 
@@ -95,6 +97,7 @@ public class Registrar extends javax.swing.JFrame {
             }
         });
 
+        jLabel4.setBackground(new java.awt.Color(233, 233, 233));
         jLabel4.setText("Año / mes / día Ej: 2025-02-01");
 
         jLabel5.setBackground(new java.awt.Color(233, 233, 233));
@@ -232,14 +235,23 @@ public class Registrar extends javax.swing.JFrame {
             
             fachada.guardarIna(ina);
             
-            //aquí va lo de inasistenciasDocente
-            String idIna=ina.getId();
-            inaDoc.setCi(i.cedulaDocente);
-            inaDoc.setId(idIna);
+//            //aquí va lo de inasistenciasDocente
+//            idDocente=ina.getId();
+//            System.out.println("El id de la inasistencia es "+ idDocente);
+//            inaDoc.setCi(i.cedulaDocente);
+//            System.out.println("La cedula de la inasistencia es "+ inaDoc.getCi());
+            //inaDoc.setId(idDocente);
             
-            fachada.guardarInaDocente(inaDoc);
-
-            //
+            //fachada.guardarInaDocente(inaDoc);
+             idGenerado = fachada.guardarIna(ina);
+             String idGeneradoS = Integer.toString(idGenerado);
+             System.out.println("El id de la inasistencia es "+ idGeneradoS);
+             System.out.println("La cedula de la inasistencia es "+ i.cedulaDocente);
+             inaDoc.setId(idGeneradoS);
+             inaDoc.setCi(i.cedulaDocente);
+             fachada.guardarInaDocente(inaDoc);
+             
+//            //
             
             JOptionPane.showMessageDialog(null, "Se ha guardado con éxito");
             }catch (PersonaExcepcion ex){

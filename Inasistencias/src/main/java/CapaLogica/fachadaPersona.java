@@ -2,13 +2,17 @@ package CapaLogica;
 
 import CapaExcepcion.BDException;
 import CapaExcepcion.PersonaExcepcion;
+import CapaGrafica.Inicio;
 import CapaPersistencia.guardarIna;
 import java.sql.SQLException;
 
 public class fachadaPersona {
-    public void guardarIna (Inasistencias ina) throws Exception, SQLException{
+    //Inicio ini=new Inicio();
+    public int guardarIna (Inasistencias ina) throws Exception, SQLException{
         guardarIna per= new guardarIna();
         per.guardarIna(ina);
+        //ini.idDocente=ina.getId();
+        return guardarIna(ina);
     }
     
     public void guardarInaDocente (InasistenciasDocente inaDoc) throws Exception, SQLException{

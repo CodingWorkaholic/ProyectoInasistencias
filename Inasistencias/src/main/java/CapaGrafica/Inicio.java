@@ -19,7 +19,7 @@ public class Inicio extends javax.swing.JFrame {
     public Inicio() {
          initComponents();
         setLocationRelativeTo(null);
-        String cedulaDocente= txtCi.getText();
+         cedulaDocente= txtCi.getText();
        //SetImageLabel(ITIimagen, "src/java/main/Imagenes/ITI.jpg");
        
     }
@@ -180,7 +180,7 @@ public class Inicio extends javax.swing.JFrame {
                 
                 if(per.getCi().equals(txtCi.getText()) && per.getPass().equals(txtPass.getText())){
                     
-                     String cedulaDocente= txtCi.getText();
+                      cedulaDocente= txtCi.getText();
                             dispose();
                             setVisible(false);
                             VistaDocente ingreso= new VistaDocente();

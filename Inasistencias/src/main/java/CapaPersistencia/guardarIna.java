@@ -1,7 +1,10 @@
 package CapaPersistencia;
 
+import CapaLogica.fachadaPersona;
 import CapaExcepcion.BDException;
 import CapaExcepcion.PersonaExcepcion;
+import CapaGrafica.Inicio;
+import CapaGrafica.Registrar;
 import CapaLogica.LogIn;
 import CapaLogica.Inasistencias;
 import CapaLogica.InasistenciasDocente;
@@ -11,6 +14,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class guardarIna {
+    public String idDocente;
+    Inicio ini=new Inicio();
+    Registrar reg= new Registrar();
+    fachadaPersona fachada=new fachadaPersona();
+    
     private static final String SQLguardar=("INSERT INTO inasistencias.inasistencias(id, fechaInicio, fechaFin, materia, grupo)Values (?,?,?,?,?)");
      private static final String GuardarInaDocente=("INSERT INTO inasistencias.inasistenciaDocente(idInasistencia, ciDocente)Values (?,?)");
     private static final String SQL_CONSULTA_PERSONA = ("SELECT * FROM inasistencias.usuarios where ci=?");
@@ -21,7 +29,9 @@ public class guardarIna {
     public ResultSet rs; //muestra los datos
     private ResultSet resultado; 
     
-    public void guardarIna(Inasistencias ina) throws Exception,BDException {
+    public int guardarIna(Inasistencias ina) throws Exception,BDException {
+    String idDoc= ina.getId();
+    int generatedId = -1;
     try{
         int resultado=0; //variable que guarda la conexión
         Connection con= cone.getConnection(); //Me conecto
@@ -32,14 +42,33 @@ public class guardarIna {
         ps.setString(3,ina.getFechaFin());
         ps.setString(4,ina.getMateria());
         ps.setString(5,ina.getGrupo());
-
+        
+        idDocente=ina.getId();
+        
+        
+//         ResultSet rs = ps.getGeneratedKeys();
+//            if (rs.next()) {
+//                generatedId = rs.getInt(1); 
+//                System.out.println("Id de la inasistencia es: " + generatedId);
+//            }
+        
+        
+        
+        
+//        System.out.println(ini.cedulaDocente);
+//        ps=(PreparedStatement)con.prepareStatement(GuardarInaDocente);
+//       ps.setString(1,ina.getId());
+//        ps.setString(2,ini.cedulaDocente);
+        
         
        resultado=ps.executeUpdate();
+       
        System.out.println(resultado);
     }   catch (SQLException sqle) {
         throw new Exception("Error en base de datos");
             
         }
+    return generatedId;
     }
     
     public void guardarInaDocente(InasistenciasDocente inaDoc) throws Exception,BDException {
@@ -49,6 +78,12 @@ public class guardarIna {
         ps=(PreparedStatement)con.prepareStatement(GuardarInaDocente); //"con" es la variable en la cual se guarda la conexión
         
         System.out.println(inaDoc);
+        
+        
+//        ps.setString(1,inaDoc.getId());
+        //ps.setString(2,inaDoc.getCi());
+        
+    
         ps.setString(1,inaDoc.getId());
         ps.setString(2,inaDoc.getCi());
         
@@ -57,7 +92,7 @@ public class guardarIna {
        resultado=ps.executeUpdate();
        System.out.println(resultado);
     }   catch (SQLException sqle) {
-        throw new Exception("Error en base de datos");
+        throw new Exception("Error en base de datos guardarInaDocente");
             
         }
     }
