@@ -8,7 +8,7 @@ PRIMARY key (ci)
 );
 
 CREATE TABLE inasistencias (
-id int(20)  not null AUTO_INCREMENT, 
+id int(20) AUTO_INCREMENT, 
 fechaInicio date not null, 
 fechaFin date not null,
 materia varchar(20) not null,
@@ -21,28 +21,7 @@ ci varchar(10) not null,
 nombre varchar(20) not null, 
 apellido varchar(20) not null,
 PRIMARY key (ci)
-);
-
-CREATE TABLE grupos (
-nombre varchar(20) not null,
-turno varchar(20) not null,
-PRIMARY key (nombre)
-);
-
-CREATE TABLE login (
-ciUsuario varchar(10) not null,
-ciDocente varchar(10) not null,
-PRIMARY key (ciUsuario, ciDocente),
-FOREIGN key (ciUsuario) REFERENCES usuarios(ci),
-FOREIGN key (ciDocente) REFERENCES docentes(ci)
-);
-
-CREATE TABLE gruposDocente (
-nombreGrupo varchar(20) not null,
-ciDocente varchar(10) not null,
-PRIMARY key (nombreGrupo, ciDocente),
-FOREIGN key (nombreGrupo) REFERENCES grupos(nombre),
-FOREIGN key (ciDocente) REFERENCES docentes(ci)
+foreign key (ci) references usuarios(ci)
 );
 
 CREATE TABLE inasistenciaDocente (
@@ -90,42 +69,10 @@ INSERT INTO docentes VALUES ('20000007', 'María', 'Suárez');
 INSERT INTO docentes VALUES ('20000008', 'Jorge', 'Silva');
 INSERT INTO docentes VALUES ('20000009', 'Valentina', 'Torres');
 INSERT INTO docentes VALUES ('20000010', 'Andrés', 'Cabrera');
+insert into usuarios values ('58046935', 'alexbogo');
+insert into usuarios values ('57909578', 'salvamed');
 
--- Grupos
-INSERT INTO grupos VALUES ('Grupo1', 'Matutino');
-INSERT INTO grupos VALUES ('Grupo2', 'Vespertino');
-INSERT INTO grupos VALUES ('Grupo3', 'Nocturno');
-INSERT INTO grupos VALUES ('Grupo4', 'Matutino');
-INSERT INTO grupos VALUES ('Grupo5', 'Vespertino');
-INSERT INTO grupos VALUES ('Grupo6', 'Nocturno');
-INSERT INTO grupos VALUES ('Grupo7', 'Matutino');
-INSERT INTO grupos VALUES ('Grupo8', 'Vespertino');
-INSERT INTO grupos VALUES ('Grupo9', 'Nocturno');
-INSERT INTO grupos VALUES ('Grupo10', 'Matutino');
 
--- Login (usuario-docente)
-INSERT INTO login VALUES ('10000001', '20000001');
-INSERT INTO login VALUES ('10000002', '20000002');
-INSERT INTO login VALUES ('10000003', '20000003');
-INSERT INTO login VALUES ('10000004', '20000004');
-INSERT INTO login VALUES ('10000005', '20000005');
-INSERT INTO login VALUES ('10000006', '20000006');
-INSERT INTO login VALUES ('10000007', '20000007');
-INSERT INTO login VALUES ('10000008', '20000008');
-INSERT INTO login VALUES ('10000009', '20000009');
-INSERT INTO login VALUES ('10000010', '20000010');
-
--- GruposDocente
-INSERT INTO gruposDocente VALUES ('Grupo1', '20000001');
-INSERT INTO gruposDocente VALUES ('Grupo2', '20000002');
-INSERT INTO gruposDocente VALUES ('Grupo3', '20000003');
-INSERT INTO gruposDocente VALUES ('Grupo4', '20000004');
-INSERT INTO gruposDocente VALUES ('Grupo5', '20000005');
-INSERT INTO gruposDocente VALUES ('Grupo6', '20000006');
-INSERT INTO gruposDocente VALUES ('Grupo7', '20000007');
-INSERT INTO gruposDocente VALUES ('Grupo8', '20000008');
-INSERT INTO gruposDocente VALUES ('Grupo9', '20000009');
-INSERT INTO gruposDocente VALUES ('Grupo10', '20000010');
 
 -- InasistenciaDocente (los id corresponden al AUTO_INCREMENT de inasistencias)
 INSERT INTO inasistenciaDocente VALUES (1, '20000001', 'Grupo1');
@@ -138,6 +85,7 @@ INSERT INTO inasistenciaDocente VALUES (7, '20000007', 'Grupo7');
 INSERT INTO inasistenciaDocente VALUES (8, '20000008', 'Grupo8');
 INSERT INTO inasistenciaDocente VALUES (9, '20000009', 'Grupo9');
 INSERT INTO inasistenciaDocente VALUES (10, '20000010', 'Grupo10');
+
 
 
 
