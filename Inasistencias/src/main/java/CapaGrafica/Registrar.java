@@ -243,7 +243,7 @@ public class Registrar extends javax.swing.JFrame {
             //inaDoc.setId(idDocente);
             
             //fachada.guardarInaDocente(inaDoc);
-             idGenerado = fachada.guardarIna(ina);
+             //idGenerado = fachada.guardarIna(ina);
              String idGeneradoS = Integer.toString(idGenerado);
              System.out.println("El id de la inasistencia es "+ idGeneradoS);
              System.out.println("La cedula de la inasistencia es "+ i.cedulaDocente);

@@ -19,7 +19,7 @@ public class guardarIna {
     Registrar reg= new Registrar();
     fachadaPersona fachada=new fachadaPersona();
     
-    private static final String SQLguardar=("INSERT INTO inasistencias.inasistencias(id, fechaInicio, fechaFin, materia, grupo)Values (?,?,?,?,?)");
+    private static final String SQLguardar=("INSERT INTO inasistencias.inasistencias(fechaInicio, fechaFin, materia, grupo, ci)Values (?,?,?,?,?)");
      private static final String GuardarInaDocente=("INSERT INTO inasistencias.inasistenciaDocente(idInasistencia, ciDocente)Values (?,?)");
     private static final String SQL_CONSULTA_PERSONA = ("SELECT * FROM inasistencias.usuarios where ci=?");
     private static final String EliminarInasistencia =("DELETE FROM inasistencias where id=?");
@@ -29,21 +29,22 @@ public class guardarIna {
     public ResultSet rs; //muestra los datos
     private ResultSet resultado; 
     
-    public int guardarIna(Inasistencias ina) throws Exception,BDException {
-    String idDoc= ina.getId();
-    int generatedId = -1;
+    public void guardarIna(Inasistencias ina) throws Exception,BDException {
+    
+//    int generatedId = -1;
     try{
         int resultado=0; //variable que guarda la conexión
         Connection con= cone.getConnection(); //Me conecto
         ps=(PreparedStatement)con.prepareStatement(SQLguardar); //"con" es la variable en la cual se guarda la conexión
         
-        ps.setString(1,ina.getId());
-        ps.setString(2,ina.getFechaInicio());
-        ps.setString(3,ina.getFechaFin());
-        ps.setString(4,ina.getMateria());
-        ps.setString(5,ina.getGrupo());
         
-        idDocente=ina.getId();
+        ps.setString(1,ina.getFechaInicio());
+        ps.setString(2,ina.getFechaFin());
+        ps.setString(3,ina.getMateria());
+        ps.setString(4,ina.getGrupo());
+        ps.setString(5, ini.cedulaDocente);
+        
+        //idDocente=ina.getId();
         
         
 //         ResultSet rs = ps.getGeneratedKeys();
@@ -68,7 +69,7 @@ public class guardarIna {
         throw new Exception("Error en base de datos");
             
         }
-    return generatedId;
+    //return generatedId;
     }
     
     public void guardarInaDocente(InasistenciasDocente inaDoc) throws Exception,BDException {
@@ -97,13 +98,7 @@ public class guardarIna {
         }
     }
     
-    /**
-     *
-     * @param ci
-     * @return
-     * @throws Exception
-     * @throws BDException
-     */
+   
     public LogIn busquedaCI (String ci) throws Exception, BDException, PersonaExcepcion{
         LogIn pers= new LogIn();
         
