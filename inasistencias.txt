@@ -13,6 +13,7 @@ fechaInicio date not null,
 fechaFin date not null,
 materia varchar(20) not null,
 grupo varchar(20) not null,
+ci varchar(10) not null, 
 PRIMARY key (id)
 );
 
@@ -24,13 +25,6 @@ PRIMARY key (ci),
 foreign key (ci) references usuarios(ci)
 );
 
-CREATE TABLE inasistenciaDocente (
-idInasistencia int(20) not null, 
-ciDocente varchar(10) not null,
-PRIMARY key (idInasistencia, ciDocente),
-FOREIGN key (idInasistencia) REFERENCES inasistencias(id),
-FOREIGN key (ciDocente) REFERENCES docentes(ci)
-);
 
 -- Usuarios
 
@@ -38,15 +32,7 @@ insert into usuarios values ('58046935', 'alexbogo');
 insert into usuarios values ('57909578', 'salvamed');
 
 
-
 -- Docentes
 
 insert into docentes values ('58046935', 'Alexander', 'Bogorodskiy');
 insert into docentes values ('57909578', 'Salvador', 'Medina');
-
-
-
-
-
-
-
