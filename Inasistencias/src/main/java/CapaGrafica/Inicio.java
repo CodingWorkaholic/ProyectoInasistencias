@@ -3,6 +3,7 @@ package CapaGrafica;
 import CapaExcepcion.PersonaExcepcion;
 import CapaLogica.LogIn;
 import CapaLogica.fachadaPersona;
+import CapaPersistencia.guardarIna;
 import java.awt.Image;
 import java.sql.SQLException;
 import javax.swing.Icon;
@@ -180,11 +181,14 @@ public class Inicio extends javax.swing.JFrame {
                 
                 if(per.getCi().equals(txtCi.getText()) && per.getPass().equals(txtPass.getText())){
                     
-                      cedulaDocente= txtCi.getText();
+                      String cedulaDoc= txtCi.getText();
                             dispose();
                             setVisible(false);
+                            Registrar guardar =new Registrar(cedulaDoc);
                             VistaDocente ingreso= new VistaDocente();
+                      
                             ingreso.setVisible(true);
+                            
                             System.out.println(cedulaDocente);
                 }else{
                     JOptionPane.showMessageDialog(this, "Ese usuario no existe");

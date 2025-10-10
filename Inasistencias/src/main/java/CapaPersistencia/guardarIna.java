@@ -16,8 +16,10 @@ import java.sql.SQLException;
 public class guardarIna {
     public String idDocente;
     Inicio ini=new Inicio();
-    Registrar reg= new Registrar();
+    
+    //Registrar reg= new Registrar();
     fachadaPersona fachada=new fachadaPersona();
+    
     
     private static final String SQLguardar=("INSERT INTO inasistencias.inasistencias(fechaInicio, fechaFin, materia, grupo, ci)Values (?,?,?,?,?)");
      private static final String GuardarInaDocente=("INSERT INTO inasistencias.inasistenciaDocente(idInasistencia, ciDocente)Values (?,?)");
@@ -28,6 +30,8 @@ public class guardarIna {
     public PreparedStatement ps; //prepara los datos
     public ResultSet rs; //muestra los datos
     private ResultSet resultado; 
+
+    
     
     public void guardarIna(Inasistencias ina) throws Exception,BDException {
     
@@ -42,7 +46,7 @@ public class guardarIna {
         ps.setString(2,ina.getFechaFin());
         ps.setString(3,ina.getMateria());
         ps.setString(4,ina.getGrupo());
-        ps.setString(5, ini.cedulaDocente);
+        ps.setString(5, ina.getCi());
         
         //idDocente=ina.getId();
         

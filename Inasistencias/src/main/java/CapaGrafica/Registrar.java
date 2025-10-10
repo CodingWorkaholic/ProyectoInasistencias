@@ -11,6 +11,7 @@ public class Registrar extends javax.swing.JFrame {
     fachadaPersona fachada=new fachadaPersona();
     Inicio i=new Inicio();
     public String idDocente;
+    private String cedulaDocente;
     int idGenerado;
     
   
@@ -18,11 +19,15 @@ public class Registrar extends javax.swing.JFrame {
     /**
      * Creates new form Registrar
      */
-    public Registrar() {
+    public Registrar(String cedulaDoc) {
+        initComponents();
+        setLocationRelativeTo(null);
+        this.cedulaDocente=cedulaDoc;
+    }
+    public Registrar(){
         initComponents();
         setLocationRelativeTo(null);
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -224,7 +229,7 @@ public class Registrar extends javax.swing.JFrame {
             String fechaFin=txtFin.getText();
             String materia=txtMateria.getText();
             String grupo=txtGrupo.getText();
-            
+                 
             
            
             
@@ -232,6 +237,7 @@ public class Registrar extends javax.swing.JFrame {
             ina.setFechaFin(fechaFin);
             ina.setMateria(materia);
             ina.setGrupo(grupo);
+            ina.setCi(cedulaDocente);
             
             fachada.guardarIna(ina);
             
