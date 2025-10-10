@@ -145,7 +145,7 @@ public class VistaDocente extends javax.swing.JFrame {
         // TODO add your handling code here:
         dispose();
         setVisible(false);
-        Eliminar ingreso= new Eliminar();
+        Eliminar ingreso= new Eliminar(cedulaDocente);
         ingreso.setVisible(true);
         
     }//GEN-LAST:event_btnEliminarActionPerformed

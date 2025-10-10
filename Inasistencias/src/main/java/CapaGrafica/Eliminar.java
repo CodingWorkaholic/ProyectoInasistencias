@@ -1,14 +1,15 @@
 package CapaGrafica;
 
 public class Eliminar extends javax.swing.JFrame {
-    
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Eliminar.class.getName());
+    private String cedulaDocente;
 
-    public Eliminar() {
+    public Eliminar(String cedulaDoc) {
         initComponents();
         setLocationRelativeTo(null);
+        this.cedulaDocente=cedulaDoc;
     }
-
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -114,7 +115,7 @@ public class Eliminar extends javax.swing.JFrame {
         // TODO add your handling code here:
         dispose();
         setVisible(false);
-        VistaDocente ingreso= new VistaDocente();
+        VistaDocente ingreso= new VistaDocente(cedulaDocente);
         ingreso.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
