@@ -1,12 +1,19 @@
 package CapaGrafica;
 
 public class VistaDocente extends javax.swing.JFrame {
+    private String cedulaDocente;
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VistaDocente.class.getName());
 
     public VistaDocente() {
         initComponents();
         setLocationRelativeTo(null);
+    }
+    
+    public VistaDocente(String cedulaDoc) {
+        initComponents();
+        setLocationRelativeTo(null);
+         this.cedulaDocente=cedulaDoc;
     }
 
     /**
@@ -130,7 +137,7 @@ public class VistaDocente extends javax.swing.JFrame {
         // TODO add your handling code here:
         dispose();
         setVisible(false);
-        Registrar ingreso= new Registrar();
+        Registrar ingreso= new Registrar(cedulaDocente);
         ingreso.setVisible(true);
     }//GEN-LAST:event_btnRegistrarActionPerformed
 

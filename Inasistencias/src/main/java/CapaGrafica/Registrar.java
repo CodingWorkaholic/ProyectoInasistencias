@@ -232,6 +232,7 @@ public class Registrar extends javax.swing.JFrame {
                  
             
            
+            System.out.println("L a cedula es"+cedulaDocente);
             
             ina.setFechaInicio(fechaInicio);
             ina.setFechaFin(fechaFin);

@@ -184,8 +184,8 @@ public class Inicio extends javax.swing.JFrame {
                       String cedulaDoc= txtCi.getText();
                             dispose();
                             setVisible(false);
-                            Registrar guardar =new Registrar(cedulaDoc);
-                            VistaDocente ingreso= new VistaDocente();
+//                            Registrar guardar =new Registrar(cedulaDoc);
+                            VistaDocente ingreso= new VistaDocente(cedulaDoc);
                       
                             ingreso.setVisible(true);
                             
