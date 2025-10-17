@@ -3,17 +3,15 @@ package CapaGrafica;
 public class VistaDocente extends javax.swing.JFrame {
     private String cedulaDocente;
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VistaDocente.class.getName());
+    
 
-    public VistaDocente() {
-        initComponents();
-        setLocationRelativeTo(null);
-    }
+    
     
     public VistaDocente(String cedulaDoc) {
         initComponents();
         setLocationRelativeTo(null);
          this.cedulaDocente=cedulaDoc;
+         System.out.println("La cedula que se guarda en la clase eliminar es "+cedulaDocente);
     }
 
     /**

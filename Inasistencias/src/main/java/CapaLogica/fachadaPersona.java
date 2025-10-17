@@ -15,10 +15,12 @@ public class fachadaPersona {
         //return guardarIna(ina);
     }
     
-    public void guardarInaDocente (InasistenciasDocente inaDoc) throws Exception, SQLException{
-        guardarIna per= new guardarIna();
-        per.guardarInaDocente(inaDoc);
-    }
+//    public Docentes busquedaIna (String ci) throws Exception, SQLException{
+//        Docentes doc= new Docentes();
+//        guardarIna pers=new guardarIna();
+//        doc=pers.busquedaIna();
+//        return doc;
+//    }
     
     public LogIn busquedaCI (String ci) throws PersonaExcepcion, BDException, SQLException, Exception { 
         LogIn per= new LogIn();

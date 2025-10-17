@@ -9,6 +9,8 @@ public class Eliminar extends javax.swing.JFrame {
         this.cedulaDocente=cedulaDoc;
     }
     
+   
+    
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -113,6 +115,7 @@ public class Eliminar extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        System.out.println("La cedula que se guarda en la clase eliminar es "+cedulaDocente);
         dispose();
         setVisible(false);
         VistaDocente ingreso= new VistaDocente(cedulaDocente);

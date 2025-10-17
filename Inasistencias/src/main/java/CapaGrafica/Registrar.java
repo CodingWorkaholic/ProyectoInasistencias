@@ -23,11 +23,12 @@ public class Registrar extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         this.cedulaDocente=cedulaDoc;
+        System.out.println("La cedula que se guarda en la clase Registrar es "+cedulaDocente);
     }
-    public Registrar(){
-        initComponents();
-        setLocationRelativeTo(null);
-    }
+//    public Registrar(){
+//        initComponents();
+//        setLocationRelativeTo(null);
+//    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -256,7 +257,7 @@ public class Registrar extends javax.swing.JFrame {
              System.out.println("La cedula de la inasistencia es "+ i.cedulaDocente);
              inaDoc.setId(idGeneradoS);
              inaDoc.setCi(i.cedulaDocente);
-             fachada.guardarInaDocente(inaDoc);
+             
              
 //            //
             
@@ -276,7 +277,7 @@ public class Registrar extends javax.swing.JFrame {
         // TODO add your handling code here:
         dispose();
         setVisible(false);
-        VistaDocente ingreso= new VistaDocente();
+        VistaDocente ingreso= new VistaDocente(cedulaDocente);
         ingreso.setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
 

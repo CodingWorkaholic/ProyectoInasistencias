@@ -5,6 +5,8 @@ import CapaExcepcion.BDException;
 import CapaExcepcion.PersonaExcepcion;
 import CapaGrafica.Inicio;
 import CapaGrafica.Registrar;
+import CapaLogica.Docentes;
+import CapaLogica.DocentesList;
 import CapaLogica.LogIn;
 import CapaLogica.Inasistencias;
 import CapaLogica.InasistenciasDocente;
@@ -12,6 +14,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class guardarIna {
     public String idDocente;
@@ -22,7 +25,7 @@ public class guardarIna {
     
     
     private static final String SQLguardar=("INSERT INTO inasistencias.inasistencias(fechaInicio, fechaFin, materia, grupo, ci)Values (?,?,?,?,?)");
-     private static final String GuardarInaDocente=("INSERT INTO inasistencias.inasistenciaDocente(idInasistencia, ciDocente)Values (?,?)");
+     private static final String ConsultaIna=("SELECT doc.nombre, doc.apellido, ina.materia, ina.fechaInicio, ina.fechaFin, ina.grupo FROM inasistencias ina, docentes doc where (ina.ci=doc.ci)");
     private static final String SQL_CONSULTA_PERSONA = ("SELECT * FROM inasistencias.usuarios where ci=?");
     private static final String EliminarInasistencia =("DELETE FROM inasistencias where id=?");
     private static final String BusquedaIna = ("SELECT * FROM inasistencias.usuarios where ci=?");
@@ -76,31 +79,51 @@ public class guardarIna {
     //return generatedId;
     }
     
-    public void guardarInaDocente(InasistenciasDocente inaDoc) throws Exception,BDException {
-    try{
-        int resultado=0; //variable que guarda la conexión
-        Connection con= cone.getConnection(); //Me conecto
-        ps=(PreparedStatement)con.prepareStatement(GuardarInaDocente); //"con" es la variable en la cual se guarda la conexión
-        
-        System.out.println(inaDoc);
-        
-        
-//        ps.setString(1,inaDoc.getId());
-        //ps.setString(2,inaDoc.getCi());
-        
-    
-        ps.setString(1,inaDoc.getId());
-        ps.setString(2,inaDoc.getCi());
-        
-
-        
-       resultado=ps.executeUpdate();
-       System.out.println(resultado);
-    }   catch (SQLException sqle) {
-        throw new Exception("Error en base de datos guardarInaDocente");
-            
-        }
-    }
+//    public Docentes busquedaIna() throws Exception, BDException, PersonaExcepcion{
+//        Docentes doc= new Docentes();
+//        
+//        try{
+//            Connection con;
+//            con = cone.getConnection(); //permite conectarme a la basa de datos
+//            ps=(PreparedStatement)con.prepareStatement(ConsultaIna); //"con" es la variable en la cual se guarda la conexión
+//            rs = ps.executeQuery();// me trae todo el objeto entero (la persona entera)
+//            
+//            
+//            
+//            while (rs.next()){ //si me ecuentra la persona...
+//                
+//                
+//                String nombre= rs.getString("nombre");
+//                String apellido= rs.getString("apellido");
+//                String inicio= rs.getString("fechaIncio");
+//                String fin= rs.getString("fechaFin");
+//                String grupo= rs.getString("grupo");
+//                
+//              
+//                
+//                doc.setNombre(nombre);
+//                doc.setApellido(apellido);
+//                doc.setInicio(inicio);
+//                doc.setFin(fin);
+//                doc.setGrupo(grupo);
+//                
+//                DocentesList.agregarInasistencia(doc);
+//                
+//               
+//            }  
+//            //else{ // error
+//                //throw new PersonaExcepcion("La inasistencia no se encuentra en la base de datos");
+//                con.close(); //cierro la consulta
+//            }catch (SQLException e) {
+//            
+//        
+//            
+//        }catch (Exception e){
+//            System.out.println(e);
+//            throw new PersonaExcepcion("No se puede obtener la inasistencia");
+//        }
+//        return doc; // devuelve la persona
+//    }
     
    
     public LogIn busquedaCI (String ci) throws Exception, BDException, PersonaExcepcion{

@@ -1,12 +1,34 @@
 package CapaGrafica;
 
+import CapaExcepcion.PersonaExcepcion;
+import CapaLogica.Docentes;
+import CapaLogica.DocentesList;
+import CapaLogica.DocentesList;
+import CapaPersistencia.Conexion;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 public class VistaInvitado extends javax.swing.JFrame {
+    DefaultTableModel modelo;
+    public Conexion cone=new Conexion();
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VistaInvitado.class.getName());
 
     public VistaInvitado() {
         initComponents();
         setLocationRelativeTo(null);
+        
+        modelo=new DefaultTableModel();
+        modelo.addColumn("Docente");
+        modelo.addColumn("Materia");
+        modelo.addColumn("Incio");
+        modelo.addColumn("Fin");
+        modelo.addColumn("Grupo");
+        this.Tabla.setModel(modelo);
+        
+        
     }
 
     /**
@@ -20,8 +42,9 @@ public class VistaInvitado extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        Tabla = new javax.swing.JTable();
+        btnMostrar = new javax.swing.JButton();
+        btnVolver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Vista invitado");
@@ -29,51 +52,61 @@ public class VistaInvitado extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(22, 33, 88));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable1.setBackground(new java.awt.Color(22, 33, 88));
-        jTable1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 13)); // NOI18N
-        jTable1.setForeground(new java.awt.Color(22, 33, 88));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        Tabla.setBackground(new java.awt.Color(22, 33, 88));
+        Tabla.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 13)); // NOI18N
+        Tabla.setForeground(new java.awt.Color(22, 33, 88));
+        Tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Docente", "Materia", "Inicio", "Fin", "Grupo", "Turno"
+                "Docente", "Materia", "Inicio", "Fin", "Grupo"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setResizable(false);
-            jTable1.getColumnModel().getColumn(1).setResizable(false);
-            jTable1.getColumnModel().getColumn(2).setResizable(false);
-            jTable1.getColumnModel().getColumn(3).setResizable(false);
-            jTable1.getColumnModel().getColumn(4).setResizable(false);
-            jTable1.getColumnModel().getColumn(5).setResizable(false);
+        Tabla.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(Tabla);
+        if (Tabla.getColumnModel().getColumnCount() > 0) {
+            Tabla.getColumnModel().getColumn(0).setResizable(false);
+            Tabla.getColumnModel().getColumn(1).setResizable(false);
+            Tabla.getColumnModel().getColumn(2).setResizable(false);
+            Tabla.getColumnModel().getColumn(3).setResizable(false);
+            Tabla.getColumnModel().getColumn(4).setResizable(false);
         }
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, 420));
 
-        jButton1.setBackground(new java.awt.Color(143, 227, 255));
-        jButton1.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 20)); // NOI18N
-        jButton1.setText("Volver");
-        jButton1.setAlignmentY(0.0F);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnMostrar.setBackground(new java.awt.Color(143, 227, 255));
+        btnMostrar.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 20)); // NOI18N
+        btnMostrar.setText("Mostrar Inasistencias");
+        btnMostrar.setAlignmentY(0.0F);
+        btnMostrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnMostrarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 460, 160, 60));
+        jPanel1.add(btnMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 460, 310, 60));
+
+        btnVolver.setBackground(new java.awt.Color(143, 227, 255));
+        btnVolver.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 20)); // NOI18N
+        btnVolver.setText("Volver");
+        btnVolver.setAlignmentY(0.0F);
+        btnVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 460, 160, 60));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -89,22 +122,54 @@ public class VistaInvitado extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
+        // TODO add your handling code here:
+        DocentesList lista = new DocentesList();
+            lista.cargarInasistencias(cone);
+        ArrayList<Docentes> docentes=  lista.getListaInasistencias();
+        for (Docentes doc : docentes){
+            
+            Object[] datoFila=new Object[5];
+            //try{
+                
+                
+                datoFila[0]=(doc.getNombre());
+                datoFila[1]=(doc.getMateria());
+                datoFila[2]=(doc.getInicio());
+                datoFila[3]=(doc.getFin());
+                datoFila[4]=(doc.getGrupo());
+                modelo.addRow(datoFila);
+        }
+//                
+//            }catch (PersonaExcepcion ex){
+//               
+//                JOptionPane.showMessageDialog(this, "No se pudo encontrar inasistencias");
+//            } catch (SQLException ex) {
+//                System.getLogger(VistaInvitado.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+//            } catch (Exception ex) {
+//                System.getLogger(VistaInvitado.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+//            }
+            
+            
+    }//GEN-LAST:event_btnMostrarActionPerformed
+
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         // TODO add your handling code here:
         dispose();
         setVisible(false);
         Inicio ingreso= new Inicio();
         ingreso.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnVolverActionPerformed
 
     /**
      * @param args the command line arguments
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JTable Tabla;
+    private javax.swing.JButton btnMostrar;
+    private javax.swing.JButton btnVolver;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
