@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package CapaLogica;
 
 import CapaExcepcion.BDException;
@@ -12,11 +8,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-/**
- *
- * @author alex
- */
 public class DocentesList {
+
+    public static void agregarInasistencia(Docentes docente) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     public Conexion cone=new Conexion();
     
     
@@ -26,7 +22,6 @@ public class DocentesList {
 //        docentes.add(doc);
 //    }
 //  
-//
 //    public  ArrayList<Docentes> getInasistencias() {
 //        return docentes;
 //    }
@@ -41,7 +36,6 @@ public class DocentesList {
     public void cargarInasistencias() throws SQLException, BDException {
         try(Connection con = cone.getConnection()){
         Statement stmt = con.createStatement();
-        
         
         ResultSet rs = stmt.executeQuery("SELECT doc.nombre, doc.apellido, ina.materia, ina.fechaInicio, ina.fechaFin, ina.grupo FROM inasistencias ina, docentes doc where (ina.ci=doc.ci)");
         while (rs.next()) {

@@ -98,10 +98,7 @@ public class guardarIna {
                 docente.setInicio(rs.getString("fechaIncio"));
                 docente.setFin(rs.getString("fechaFin"));
                 docente.setGrupo(rs.getString("grupo"));
-                
-              
-                
-                
+             
                 
                 DocentesList.agregarInasistencia(docente);
                 
@@ -159,7 +156,7 @@ public class guardarIna {
         String eliminacion = null;
         
        Inasistencias ina=new Inasistencias();
-        
+       
        try{
            Connection con;
            con= cone.getConnection();
