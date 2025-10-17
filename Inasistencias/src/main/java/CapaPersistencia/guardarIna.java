@@ -79,51 +79,47 @@ public class guardarIna {
     //return generatedId;
     }
     
-//    public Docentes busquedaIna() throws Exception, BDException, PersonaExcepcion{
-//        Docentes doc= new Docentes();
-//        
-//        try{
-//            Connection con;
-//            con = cone.getConnection(); //permite conectarme a la basa de datos
-//            ps=(PreparedStatement)con.prepareStatement(ConsultaIna); //"con" es la variable en la cual se guarda la conexión
-//            rs = ps.executeQuery();// me trae todo el objeto entero (la persona entera)
-//            
-//            
-//            
-//            while (rs.next()){ //si me ecuentra la persona...
-//                
-//                
-//                String nombre= rs.getString("nombre");
-//                String apellido= rs.getString("apellido");
-//                String inicio= rs.getString("fechaIncio");
-//                String fin= rs.getString("fechaFin");
-//                String grupo= rs.getString("grupo");
-//                
-//              
-//                
-//                doc.setNombre(nombre);
-//                doc.setApellido(apellido);
-//                doc.setInicio(inicio);
-//                doc.setFin(fin);
-//                doc.setGrupo(grupo);
-//                
-//                DocentesList.agregarInasistencia(doc);
-//                
-//               
-//            }  
-//            //else{ // error
-//                //throw new PersonaExcepcion("La inasistencia no se encuentra en la base de datos");
-//                con.close(); //cierro la consulta
-//            }catch (SQLException e) {
-//            
-//        
-//            
-//        }catch (Exception e){
-//            System.out.println(e);
-//            throw new PersonaExcepcion("No se puede obtener la inasistencia");
-//        }
-//        return doc; // devuelve la persona
-//    }
+    public DocentesList consultaIna() throws Exception, BDException, PersonaExcepcion{
+        DocentesList doc= new DocentesList();
+        
+        try{
+            Connection con;
+            con = cone.getConnection(); //permite conectarme a la basa de datos
+            ps=(PreparedStatement)con.prepareStatement(ConsultaIna); //"con" es la variable en la cual se guarda la conexión
+            rs = ps.executeQuery();// me trae todo el objeto entero (la persona entera)
+            
+            
+            
+            while (rs.next()){ //si me ecuentra la persona...
+                Docentes docente= new Docentes();
+                
+                docente.setNombre(rs.getString("nombre"));
+                docente.setApellido(rs.getString("apellido"));
+                docente.setInicio(rs.getString("fechaIncio"));
+                docente.setFin(rs.getString("fechaFin"));
+                docente.setGrupo(rs.getString("grupo"));
+                
+              
+                
+                
+                
+                DocentesList.agregarInasistencia(docente);
+                
+               
+            }  
+            //else{ // error
+                //throw new PersonaExcepcion("La inasistencia no se encuentra en la base de datos");
+                con.close(); //cierro la consulta
+            }catch (SQLException e) {
+            
+        
+            
+        }catch (Exception e){
+            System.out.println(e);
+            throw new PersonaExcepcion("No se puede obtener la inasistencia");
+        }
+        return doc; // devuelve la persona
+    }
     
    
     public LogIn busquedaCI (String ci) throws Exception, BDException, PersonaExcepcion{

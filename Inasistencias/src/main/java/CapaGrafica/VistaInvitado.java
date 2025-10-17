@@ -125,7 +125,7 @@ public class VistaInvitado extends javax.swing.JFrame {
     private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
         // TODO add your handling code here:
         DocentesList lista = new DocentesList();
-            lista.cargarInasistencias(cone);
+            //lista.cargarInasistencias();
         ArrayList<Docentes> docentes=  lista.getListaInasistencias();
         for (Docentes doc : docentes){
             

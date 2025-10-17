@@ -18,6 +18,8 @@ import java.util.ArrayList;
  */
 public class DocentesList {
     public Conexion cone=new Conexion();
+    
+    
 //    public static ArrayList<Docentes> docentes = new ArrayList<>();
 //    
 //  public static void agregarInasistencia(Docentes doc) {
@@ -32,12 +34,12 @@ public class DocentesList {
 //    public  void setInasistencias(ArrayList<Docentes> doc) {
 //        this.docentes = doc;
 //    }
-    Connection con= cone.getConnection();
     
-    public static ArrayList<Docentes> listaDocentes = new ArrayList<>();
     
-    public void cargarInasistencias(Connection con) throws SQLException, BDException {
-        
+    private ArrayList<Docentes> listaDocentes = new ArrayList<>();
+    
+    public void cargarInasistencias() throws SQLException, BDException {
+        try(Connection con = cone.getConnection()){
         Statement stmt = con.createStatement();
         
         
@@ -54,6 +56,7 @@ public class DocentesList {
         }
         rs.close();
         stmt.close();
+    }
     }
 
     public ArrayList<Docentes> getListaInasistencias() {
