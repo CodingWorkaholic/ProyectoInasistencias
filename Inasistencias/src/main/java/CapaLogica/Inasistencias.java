@@ -3,8 +3,6 @@ package CapaLogica;
 public class Inasistencias {
     private String  fechaInicio, fechaFin, materia, grupo, ci;
 
-    
-
     public String getFechaInicio() {
         return fechaInicio;
     }
@@ -44,9 +42,4 @@ public class Inasistencias {
     public void setCi(String ci) {
         this.ci = ci;
     }
-    
-    
-    
-    
-    
 }
