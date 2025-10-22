@@ -1,8 +1,7 @@
 package CapaGrafica;
 
 public class Modificar2 extends javax.swing.JFrame {
-    
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Modificar2.class.getName());
+    private String cedulaDocente;
 
     public Modificar2() {
         initComponents();
@@ -150,7 +149,7 @@ public class Modificar2 extends javax.swing.JFrame {
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         dispose();
         setVisible(false);
-        Modificar1 ingreso= new Modificar1();
+        Modificar1 ingreso= new Modificar1(cedulaDocente);
         ingreso.setVisible(true);
     }//GEN-LAST:event_btnVolverActionPerformed
 

@@ -1,12 +1,12 @@
 package CapaGrafica;
 
 public class Modificar1 extends javax.swing.JFrame {
+    private String cedulaDocente;
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Modificar1.class.getName());
-
-    public Modificar1() {
+    public Modificar1(String cedulaDoc) {
         initComponents();
         setLocationRelativeTo(null);
+        this.cedulaDocente=cedulaDoc;
     }
 
     @SuppressWarnings("unchecked")
@@ -108,10 +108,11 @@ public class Modificar1 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-//        dispose();
-//        setVisible(false);
-//        VistaDocente ingreso= new VistaDocente();
-//        ingreso.setVisible(true);
+        System.out.println("La cedula que se guarda en la clase eliminar es "+cedulaDocente);
+        dispose();
+        setVisible(false);
+        VistaDocente ingreso= new VistaDocente(cedulaDocente);
+        ingreso.setVisible(true);
     }//GEN-LAST:event_btnVolverActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -138,7 +138,7 @@ public class VistaDocente extends javax.swing.JFrame {
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
         dispose();
         setVisible(false);
-        Modificar1 ingreso= new Modificar1();
+        Modificar1 ingreso= new Modificar1(cedulaDocente);
         ingreso.setVisible(true);
     }//GEN-LAST:event_btnModificarActionPerformed
 
