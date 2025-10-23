@@ -117,7 +117,7 @@ public class VistaInvitado extends javax.swing.JFrame {
     private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
         DocentesList lista = new DocentesList();
         
-        ArrayList<Docentes> docentes=  lista.getListaInasistencias();
+        ArrayList<Docentes> docentes=  lista.getInasistencias();
         for (Docentes doc : docentes){
 
             Object[] datoFila=new Object[5];
@@ -130,16 +130,13 @@ public class VistaInvitado extends javax.swing.JFrame {
                 datoFila[3]=(doc.getFin());
                 datoFila[4]=(doc.getGrupo());
                 modelo.addRow(datoFila);
-        }
+        
              
 //            }catch (PersonaExcepcion ex){
-//               
-//                JOptionPane.showMessageDialog(this, "No se pudo encontrar inasistencias");
-//            } catch (SQLException ex) {
-//                System.getLogger(VistaInvitado.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
-//            } catch (Exception ex) {
-//                System.getLogger(VistaInvitado.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
-//            } 
+               
+              //  JOptionPane.showMessageDialog(this, "No se pudo encontrar inasistencias");
+//            }
+        }
     }//GEN-LAST:event_btnMostrarActionPerformed
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed

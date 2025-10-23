@@ -101,7 +101,7 @@ public class guardarIna {
              
                 
                 DocentesList.agregarInasistencia(docente);
-                
+                System.out.println(docente.getApellido());
                
             }  
             //else{ // error
@@ -144,7 +144,7 @@ public class guardarIna {
             }
             con.close(); //cierro la consulta
         
-            
+        
         }catch (Exception e){
             System.out.println(e);
             throw new PersonaExcepcion("No se puede obtener la persona");
