@@ -12,6 +12,9 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class VistaInvitado extends javax.swing.JFrame {
+    DocentesList lista = new DocentesList();
+    Docentes doc= new Docentes();
+    
     DefaultTableModel modelo;
     public Conexion cone=new Conexion();
 
@@ -115,10 +118,10 @@ public class VistaInvitado extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
-        DocentesList lista = new DocentesList();
         
-        ArrayList<Docentes> docentes=  lista.getInasistencias();
-        for (Docentes doc : docentes){
+        
+        //ArrayList<Docentes> docentes=  lista.getInasistencias();
+        for (Docentes doc : DocentesList.docentes){
 
             Object[] datoFila=new Object[5];
 //          try{

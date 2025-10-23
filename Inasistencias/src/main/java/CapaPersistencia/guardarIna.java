@@ -100,7 +100,7 @@ public class guardarIna {
                 docente.setGrupo(rs.getString("grupo"));
              
                 
-                DocentesList.agregarInasistencia(docente);
+                doc.agregarInasistencia(docente);
                 System.out.println(docente.getApellido());
                
             }  
