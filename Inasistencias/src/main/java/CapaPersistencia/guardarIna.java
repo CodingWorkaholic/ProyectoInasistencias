@@ -26,6 +26,11 @@ public class guardarIna {
         "SELECT doc.nombre, doc.apellido, ina.materia, ina.fechaInicio, ina.fechaFin, ina.grupo " +
         "FROM inasistencias.inasistencias ina " +
         "JOIN inasistencias.docentes doc ON ina.ci = doc.ci";
+    
+    private static final String SQL_CONSULTA_INA_DOCENTE =
+        "SELECT ina.materia, ina.fechaInicio, ina.fechaFin, ina.grupo " +
+        "FROM inasistencias.inasistencias ina " +
+        "JOIN inasistencias.docentes doc ON ina.ci = doc.ci";
 
     private static final String SQL_CONSULTA_PERSONA =
         "SELECT * FROM inasistencias.usuarios WHERE ci=?";

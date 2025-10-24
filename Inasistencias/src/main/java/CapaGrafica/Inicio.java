@@ -118,6 +118,8 @@ public class Inicio extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(203, 203, 203));
         jLabel5.setText("Contraseña:");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 300, -1, 20));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon("/Users/alex/Documents/GitHub/ProyectoInasistencias/Inasistencias/src/main/java/Imagenes/ITIBlur.jpeg")); // NOI18N
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1110, 550));
         jLabel6.getAccessibleContext().setAccessibleParent(this);
 

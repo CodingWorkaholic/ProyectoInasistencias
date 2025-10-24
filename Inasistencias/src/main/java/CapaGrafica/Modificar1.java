@@ -1,7 +1,12 @@
 package CapaGrafica;
 
+import CapaLogica.Docentes;
+import CapaLogica.DocentesList;
+
 public class Modificar1 extends javax.swing.JFrame {
     private String cedulaDocente;
+    DocentesList lista = new DocentesList();
+    Docentes doc= new Docentes();
     
     public Modificar1(String cedulaDoc) {
         initComponents();
@@ -19,6 +24,7 @@ public class Modificar1 extends javax.swing.JFrame {
         btnModificar = new javax.swing.JButton();
         btnVolver = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        btnMostrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -79,12 +85,23 @@ public class Modificar1 extends javax.swing.JFrame {
                 btnVolverActionPerformed(evt);
             }
         });
-        jPanel1.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 460, 160, 60));
+        jPanel1.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 460, 160, 60));
 
         jLabel1.setBackground(new java.awt.Color(233, 233, 233));
         jLabel1.setForeground(new java.awt.Color(233, 233, 233));
         jLabel1.setText("Antes selecciona una tupla");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 520, -1, -1));
+
+        btnMostrar.setBackground(new java.awt.Color(143, 227, 255));
+        btnMostrar.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 20)); // NOI18N
+        btnMostrar.setText("Mostrar");
+        btnMostrar.setAlignmentY(0.0F);
+        btnMostrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMostrarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 460, 160, 60));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -115,9 +132,14 @@ public class Modificar1 extends javax.swing.JFrame {
         ingreso.setVisible(true);
     }//GEN-LAST:event_btnVolverActionPerformed
 
+    private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMostrarActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable Inasistencia;
     private javax.swing.JButton btnModificar;
+    private javax.swing.JButton btnMostrar;
     private javax.swing.JButton btnVolver;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
