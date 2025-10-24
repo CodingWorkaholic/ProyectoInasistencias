@@ -5,14 +5,21 @@ import CapaExcepcion.PersonaExcepcion;
 import CapaGrafica.Inicio;
 import CapaPersistencia.guardarIna;
 import java.sql.SQLException;
+import java.util.List;
+
 
 public class fachadaPersona {
+    DocentesList lista = new DocentesList();
     //Inicio ini=new Inicio();
     public void guardarIna (Inasistencias ina) throws Exception, SQLException{
         guardarIna per= new guardarIna();
         per.guardarIna(ina);
         //ini.idDocente=ina.getId();
         //return guardarIna(ina);
+    }
+    public void cargarInasistenciasPorCedula(String ci) throws Exception {
+        // Llamamos al método consultaInaDoc y guardamos el resultado en memoria
+        List<Docentes> datos = per.consultaInaDoc(ci);
     }
     
 //    public Docentes busquedaIna (String ci) throws Exception, SQLException{

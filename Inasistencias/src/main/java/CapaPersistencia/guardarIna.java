@@ -6,6 +6,7 @@ import CapaExcepcion.PersonaExcepcion;
 import CapaGrafica.Inicio;
 import CapaGrafica.Registrar;
 import CapaLogica.Docentes;
+import CapaLogica.DocentesDoc;
 import CapaLogica.DocentesList;
 import CapaLogica.LogIn;
 import CapaLogica.Inasistencias;
@@ -18,6 +19,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class guardarIna {
+   
+    
  
     private static final String SQL_GUARDAR =
         "INSERT INTO inasistencias.inasistencias(fechaInicio, fechaFin, materia, grupo, ci) VALUES (?,?,?,?,?)";
@@ -30,7 +33,7 @@ public class guardarIna {
     private static final String SQL_CONSULTA_INA_DOCENTE =
         "SELECT ina.materia, ina.fechaInicio, ina.fechaFin, ina.grupo " +
         "FROM inasistencias.inasistencias ina " +
-        "JOIN inasistencias.docentes doc ON ina.ci = doc.ci";
+        "WHERE ina.ci = ?";
 
     private static final String SQL_CONSULTA_PERSONA =
         "SELECT * FROM inasistencias.usuarios WHERE ci=?";
@@ -96,6 +99,29 @@ public class guardarIna {
             throw new Exception("No se puede obtener la persona", e);
         }
     }
+    
+    public List<DocentesDoc> consultaInaDoc(String ci) throws Exception {
+    List<DocentesDoc> lista = new ArrayList<>();
+    try (Connection con = cone.getConnection();
+         PreparedStatement ps = con.prepareStatement(SQL_CONSULTA_INA_DOCENTE)) {
+
+        ps.setString(1, ci); 
+
+        try (ResultSet rs = ps.executeQuery()) {
+            while (rs.next()) {
+                DocentesDoc d = new DocentesDoc();
+                d.setMateria(rs.getString("materia"));
+                d.setInicio(rs.getString("fechaInicio"));
+                d.setFin(rs.getString("fechaFin"));
+                d.setGrupo(rs.getString("grupo"));
+                lista.add(d);
+            }
+        }
+    } catch (SQLException e) {
+        throw new Exception("No se puede obtener la inasistencia", e);
+    }
+    return lista;
+}
 
     public String eliminarIna(String id) throws Exception {
         try (Connection con = cone.getConnection();

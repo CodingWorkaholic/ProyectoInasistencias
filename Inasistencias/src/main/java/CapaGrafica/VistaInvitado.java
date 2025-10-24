@@ -123,16 +123,16 @@ public class VistaInvitado extends javax.swing.JFrame {
       try {
       
 
-        // 1) Traer datos de la BD
+        
         guardarIna dao = new guardarIna();
-        List<Docentes> datos = dao.consultaIna(); // <-- ahora sí
+        List<Docentes> datos = dao.consultaIna(); 
 
         if (datos.isEmpty()) {
             JOptionPane.showMessageDialog(this, "No hay inasistencias registradas.");
             return;
         }
 
-        // 2) Cargar filas
+       
         modelo.setRowCount(0);
         for (Docentes d : datos) {
             modelo.addRow(new Object[]{
