@@ -51,7 +51,7 @@ public class VistaInvitado extends javax.swing.JFrame {
 
         Tabla.setBackground(new java.awt.Color(22, 33, 88));
         Tabla.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 13)); // NOI18N
-        Tabla.setForeground(new java.awt.Color(22, 33, 88));
+        Tabla.setForeground(new java.awt.Color(255, 255, 255));
         Tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -133,6 +133,7 @@ public class VistaInvitado extends javax.swing.JFrame {
         }
 
         // 2) Cargar filas
+        modelo.setRowCount(0);
         for (Docentes d : datos) {
             modelo.addRow(new Object[]{
                 d.getNombre() + " " + d.getApellido(),
