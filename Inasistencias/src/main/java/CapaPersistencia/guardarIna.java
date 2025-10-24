@@ -15,166 +15,94 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class guardarIna {
-    public String idDocente;
-    Inicio ini=new Inicio();
-    
-    //Registrar reg= new Registrar();
-    fachadaPersona fachada=new fachadaPersona();
-    
-    
-    private static final String SQLguardar=("INSERT INTO inasistencias.inasistencias(fechaInicio, fechaFin, materia, grupo, ci)Values (?,?,?,?,?)");
-     private static final String ConsultaIna=("SELECT doc.nombre, doc.apellido, ina.materia, ina.fechaInicio, ina.fechaFin, ina.grupo FROM inasistencias ina, docentes doc where (ina.ci=doc.ci)");
-    private static final String SQL_CONSULTA_PERSONA = ("SELECT * FROM inasistencias.usuarios where ci=?");
-    private static final String EliminarInasistencia =("DELETE FROM inasistencias where id=?");
-    private static final String BusquedaIna = ("SELECT * FROM inasistencias.usuarios where ci=?");
-    public Conexion cone=new Conexion();
-    public PreparedStatement ps; //prepara los datos
-    public ResultSet rs; //muestra los datos
-    private ResultSet resultado; 
+ 
+    private static final String SQL_GUARDAR =
+        "INSERT INTO inasistencias.inasistencias(fechaInicio, fechaFin, materia, grupo, ci) VALUES (?,?,?,?,?)";
 
-    
-    
-    public void guardarIna(Inasistencias ina) throws Exception,BDException {
-    
-//    int generatedId = -1;
-    try{
-        int resultado=0; //variable que guarda la conexión
-        Connection con= cone.getConnection(); //Me conecto
-        ps=(PreparedStatement)con.prepareStatement(SQLguardar); //"con" es la variable en la cual se guarda la conexión
-        
-        
-        ps.setString(1,ina.getFechaInicio());
-        ps.setString(2,ina.getFechaFin());
-        ps.setString(3,ina.getMateria());
-        ps.setString(4,ina.getGrupo());
-        ps.setString(5, ina.getCi());
-        
-        //idDocente=ina.getId();
-        
-        
-//         ResultSet rs = ps.getGeneratedKeys();
-//            if (rs.next()) {
-//                generatedId = rs.getInt(1); 
-//                System.out.println("Id de la inasistencia es: " + generatedId);
-//            }
-        
-        
-        
-        
-//        System.out.println(ini.cedulaDocente);
-//        ps=(PreparedStatement)con.prepareStatement(GuardarInaDocente);
-//       ps.setString(1,ina.getId());
-//        ps.setString(2,ini.cedulaDocente);
-        
-        
-       resultado=ps.executeUpdate();
-       
-       System.out.println(resultado);
-    }   catch (SQLException sqle) {
-        throw new Exception("Error en base de datos");
-            
+    private static final String SQL_CONSULTA_INA =
+        "SELECT doc.nombre, doc.apellido, ina.materia, ina.fechaInicio, ina.fechaFin, ina.grupo " +
+        "FROM inasistencias.inasistencias ina " +
+        "JOIN inasistencias.docentes doc ON ina.ci = doc.ci";
+
+    private static final String SQL_CONSULTA_PERSONA =
+        "SELECT * FROM inasistencias.usuarios WHERE ci=?";
+
+    private static final String SQL_ELIMINAR_INA =
+        "DELETE FROM inasistencias.inasistencias WHERE id=?";
+
+    private final Conexion cone = new Conexion();
+
+    public void guardarIna(Inasistencias ina) throws Exception {
+        try (Connection con = cone.getConnection();
+             PreparedStatement ps = con.prepareStatement(SQL_GUARDAR)) {
+
+            ps.setString(1, ina.getFechaInicio());
+            ps.setString(2, ina.getFechaFin());
+            ps.setString(3, ina.getMateria());
+            ps.setString(4, ina.getGrupo());
+            ps.setString(5, ina.getCi());
+            ps.executeUpdate();
+        } catch (SQLException sqle) {
+            throw new Exception("Error en base de datos", sqle);
         }
-    //return generatedId;
     }
-    
-    public DocentesList consultaIna() throws Exception, BDException, PersonaExcepcion{
-        DocentesList doc= new DocentesList();
-        
-        try{
-            Connection con;
-            con = cone.getConnection(); //permite conectarme a la basa de datos
-            ps=(PreparedStatement)con.prepareStatement(ConsultaIna); //"con" es la variable en la cual se guarda la conexión
-            rs = ps.executeQuery();// me trae todo el objeto entero (la persona entera)
-            
-            
-            
-            while (rs.next()){ //si me ecuentra la persona...
-                Docentes docente= new Docentes();
-                
-                docente.setNombre(rs.getString("nombre"));
-                docente.setApellido(rs.getString("apellido"));
-                docente.setInicio(rs.getString("fechaIncio"));
-                docente.setFin(rs.getString("fechaFin"));
-                docente.setGrupo(rs.getString("grupo"));
-             
-                
-                doc.agregarInasistencia(docente);
-                System.out.println(docente.getApellido());
-               
-            }  
-            //else{ // error
-                //throw new PersonaExcepcion("La inasistencia no se encuentra en la base de datos");
-                con.close(); //cierro la consulta
-            }catch (SQLException e) {
-            
-        
-            
-        }catch (Exception e){
-            System.out.println(e);
-            throw new PersonaExcepcion("No se puede obtener la inasistencia");
-        }
-        return doc; // devuelve la persona
-    }
-    
-   
-    public LogIn busquedaCI (String ci) throws Exception, BDException, PersonaExcepcion{
-        LogIn pers= new LogIn();
-        
-        try{
-            Connection con;
-            con = cone.getConnection(); //permite conectarme a la basa de datos
-            ps=(PreparedStatement)con.prepareStatement(SQL_CONSULTA_PERSONA); //"con" es la variable en la cual se guarda la conexión
-            ps.setString(1, ci);
-            rs = ps.executeQuery();// me trae todo el objeto entero (la persona entera)
-            
-            if (rs.next()){ //si me ecuentra la persona...
-                
-                String CI= rs.getString("ci");
-                String pass= rs.getString("pass");
-              
-                
-                pers.setCi(CI);
-                pers.setPass(pass);
-               
-                
-            }else{ // error
-                throw new PersonaExcepcion("La persona no se encuentra en la base de datos");
+
+    // Devolvé una lista (no uses el ArrayList static)
+    public List<Docentes> consultaIna() throws Exception {
+        List<Docentes> lista = new ArrayList<>();
+        try (Connection con = cone.getConnection();
+             PreparedStatement ps = con.prepareStatement(SQL_CONSULTA_INA);
+             ResultSet rs = ps.executeQuery()) {
+
+            while (rs.next()) {
+                Docentes d = new Docentes();
+                d.setNombre(rs.getString("nombre"));
+                d.setApellido(rs.getString("apellido"));
+                d.setMateria(rs.getString("materia"));                 // <- faltaba
+                d.setInicio(rs.getString("fechaInicio"));               // <- typo corregido
+                d.setFin(rs.getString("fechaFin"));
+                d.setGrupo(rs.getString("grupo"));
+                lista.add(d);
             }
-            con.close(); //cierro la consulta
-        
-        
-        }catch (Exception e){
-            System.out.println(e);
-            throw new PersonaExcepcion("No se puede obtener la persona");
+        } catch (SQLException e) {
+            throw new Exception("No se puede obtener la inasistencia", e);
         }
-        return pers; // devuelve la persona
+        return lista;
     }
-    
-    public void eliminarIna (String id) throws Exception, BDException, PersonaExcepcion{
-        String eliminacion = null;
-        
-       Inasistencias ina=new Inasistencias();
-       
-       try{
-           Connection con;
-           con= cone.getConnection();
-           ps=(PreparedStatement)con.prepareStatement(EliminarInasistencia);
-           ps.setString(1, id);
-           int resultado = ps.executeUpdate();
-           
-           if(rs.next()) {
-               eliminacion = "Persona Eliminada";
-           } else {
-               eliminacion = "La persona que desea eliminar no se encuentra";
-           }
-           con.close();
-       }catch (Exception e){
-            System.out.println(e);
-            throw new Exception("");
+
+    public LogIn busquedaCI(String ci) throws Exception {
+        try (Connection con = cone.getConnection();
+             PreparedStatement ps = con.prepareStatement(SQL_CONSULTA_PERSONA)) {
+
+            ps.setString(1, ci);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    LogIn pers = new LogIn();
+                    pers.setCi(rs.getString("ci"));
+                    pers.setPass(rs.getString("pass"));
+                    return pers;
+                }
+            }
+            throw new Exception("La persona no se encuentra en la base de datos");
+        } catch (SQLException e) {
+            throw new Exception("No se puede obtener la persona", e);
+        }
     }
-      
-       
+
+    public String eliminarIna(String id) throws Exception {
+        try (Connection con = cone.getConnection();
+             PreparedStatement ps = con.prepareStatement(SQL_ELIMINAR_INA)) {
+
+            ps.setString(1, id);
+            int filas = ps.executeUpdate();
+            return (filas > 0) ? "Inasistencia eliminada" : "No se encontró la inasistencia";
+        } catch (SQLException e) {
+            throw new Exception("Error eliminando inasistencia", e);
+        }
     }
+
+
 }

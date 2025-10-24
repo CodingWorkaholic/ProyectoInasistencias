@@ -5,9 +5,11 @@ import CapaLogica.Docentes;
 import CapaLogica.DocentesList;
 import CapaLogica.DocentesList;
 import CapaPersistencia.Conexion;
+import CapaPersistencia.guardarIna;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -118,28 +120,32 @@ public class VistaInvitado extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
-        
-        
-        //ArrayList<Docentes> docentes=  lista.getInasistencias();
-        for (Docentes doc : DocentesList.docentes){
+      try {
+      
 
-            Object[] datoFila=new Object[5];
-//          try{
-                
-                
-                datoFila[0]=(doc.getNombre());
-                datoFila[1]=(doc.getMateria());
-                datoFila[2]=(doc.getInicio());
-                datoFila[3]=(doc.getFin());
-                datoFila[4]=(doc.getGrupo());
-                modelo.addRow(datoFila);
-        
-             
-//            }catch (PersonaExcepcion ex){
-               
-              //  JOptionPane.showMessageDialog(this, "No se pudo encontrar inasistencias");
-//            }
+        // 1) Traer datos de la BD
+        guardarIna dao = new guardarIna();
+        List<Docentes> datos = dao.consultaIna(); // <-- ahora sí
+
+        if (datos.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "No hay inasistencias registradas.");
+            return;
         }
+
+        // 2) Cargar filas
+        for (Docentes d : datos) {
+            modelo.addRow(new Object[]{
+                d.getNombre() + " " + d.getApellido(),
+                d.getMateria(),
+                d.getInicio(),
+                d.getFin(),
+                d.getGrupo()
+            });
+        }
+    } catch (Exception ex) {
+        JOptionPane.showMessageDialog(this, "Error consultando inasistencias: " + ex.getMessage());
+        ex.printStackTrace();
+    }
     }//GEN-LAST:event_btnMostrarActionPerformed
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed

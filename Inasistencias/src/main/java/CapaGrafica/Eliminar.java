@@ -58,7 +58,7 @@ public class Eliminar extends javax.swing.JFrame {
             Inasistencia.getColumnModel().getColumn(4).setResizable(false);
         }
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, -1));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 1010, -1));
 
         btnEliminar.setBackground(new java.awt.Color(143, 227, 255));
         btnEliminar.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 20)); // NOI18N

@@ -14,9 +14,9 @@ public class DocentesList {
     public Conexion cone=new Conexion();
     
     
-    public static ArrayList<Docentes> docentes = new ArrayList<>();
+    public  ArrayList<Docentes> docentes = new ArrayList<>();
     
-  public static void agregarInasistencia(Docentes doc) {
+  public  void agregarInasistencia(Docentes doc) {
         docentes.add(doc);
     }
   
