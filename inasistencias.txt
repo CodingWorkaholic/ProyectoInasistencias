@@ -39,6 +39,7 @@ insert into docentes values ('57909578', 'Salvador', 'Medina');
 
 -- Inasistencias
 
+INSERT INTO inasistencias.inasistencias (fechaInicio, fechaFin, materia, grupo, ci) VALUES
 ('2025-03-01', '2025-03-02', 'Matemática', '1A', '58046935'),
 ('2025-03-05', '2025-03-06', 'Historia', '1A', '58046935'),
 ('2025-03-10', '2025-03-11', 'Lengua', '1A', '58046935'),
