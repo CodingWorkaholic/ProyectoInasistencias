@@ -174,7 +174,7 @@ public class Registrar extends javax.swing.JFrame {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         
-        if (txtInicio.getText().isEmpty() || txtFin.getText().isEmpty() || txtMateria.getText().isEmpty()){
+        if (txtInicio.getText().isEmpty() || txtFin.getText().isEmpty() || txtMateria.getText().isEmpty() || txtGrupo.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Haz de completar los campos");
         } else {
             Inasistencias ina = new Inasistencias();

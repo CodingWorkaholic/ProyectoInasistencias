@@ -1,11 +1,26 @@
 package CapaGrafica;
 
-public class Modificar2 extends javax.swing.JFrame {
-    private String cedulaDocente;
+import CapaExcepcion.PersonaExcepcion;
+import CapaLogica.DocentesDoc;
+import CapaLogica.Inasistencias;
+import CapaLogica.InasistenciasDocente;
+import CapaLogica.fachadaPersona;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
-    public Modificar2() {
+public class Modificar2 extends javax.swing.JFrame {
+    
+    private String cedulaDocente, idIna;
+    fachadaPersona fachada=new fachadaPersona();
+   
+
+    public Modificar2(String cedulaDoc, String id) {
         initComponents();
         setLocationRelativeTo(null);
+        this.cedulaDocente=cedulaDoc;
+        this.idIna=id;
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -15,12 +30,14 @@ public class Modificar2 extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtFin = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        txtMateria = new javax.swing.JTextField();
+        txtInicio = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        txtGrupo = new javax.swing.JTextField();
         btnVolver = new javax.swing.JButton();
         btnGuardar = new javax.swing.JButton();
 
@@ -37,9 +54,9 @@ public class Modificar2 extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(233, 233, 233));
         jLabel1.setText("Inicio:");
 
-        jTextField2.setBackground(new java.awt.Color(143, 227, 255));
-        jTextField2.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 12)); // NOI18N
-        jTextField2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        txtFin.setBackground(new java.awt.Color(143, 227, 255));
+        txtFin.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 12)); // NOI18N
+        txtFin.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel2.setBackground(new java.awt.Color(233, 233, 233));
         jLabel2.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 36)); // NOI18N
@@ -51,36 +68,51 @@ public class Modificar2 extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(233, 233, 233));
         jLabel3.setText("Fin:");
 
-        jTextField3.setBackground(new java.awt.Color(143, 227, 255));
-        jTextField3.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 12)); // NOI18N
-        jTextField3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        txtMateria.setBackground(new java.awt.Color(143, 227, 255));
+        txtMateria.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 12)); // NOI18N
+        txtMateria.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jTextField4.setBackground(new java.awt.Color(143, 227, 255));
-        jTextField4.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 12)); // NOI18N
-        jTextField4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        txtInicio.setBackground(new java.awt.Color(143, 227, 255));
+        txtInicio.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 12)); // NOI18N
+        txtInicio.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel4.setText("Año / mes / día Ej: 2025-02-01");
+
+        jLabel5.setBackground(new java.awt.Color(233, 233, 233));
+        jLabel5.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 36)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(233, 233, 233));
+        jLabel5.setText("Grupo:");
+
+        txtGrupo.setBackground(new java.awt.Color(143, 227, 255));
+        txtGrupo.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 12)); // NOI18N
+        txtGrupo.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(52, 52, 52))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel4)
                 .addGap(79, 79, 79))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(56, 56, 56)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtFin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtMateria, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtInicio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(52, 52, 52))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -89,17 +121,21 @@ public class Modificar2 extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addGap(22, 22, 22)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
-                .addGap(62, 62, 62)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtFin, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33))
+                    .addComponent(txtMateria, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addComponent(txtGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, 600, 330));
@@ -143,7 +179,55 @@ public class Modificar2 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        // TODO add your handling code here:
+        try {
+                
+               fachada.eliminarIna(idIna);
+               
+                JOptionPane.showMessageDialog(this, "Datos eliminados correctamente");
+            } catch (Exception ex){
+                Logger.getLogger(DocentesDoc.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        
+        if (txtInicio.getText().isEmpty() || txtFin.getText().isEmpty() || txtMateria.getText().isEmpty() || txtGrupo.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Haz de completar los campos");
+        } else {
+            Inasistencias ina = new Inasistencias();
+            InasistenciasDocente inaDoc = new InasistenciasDocente();
+            
+            try{
+            String id=idIna;
+            String fechaInicio=txtInicio.getText();
+            String fechaFin=txtFin.getText();
+            String materia=txtMateria.getText();
+            String grupo=txtGrupo.getText();
+            
+            ina.setId(id);
+            ina.setFechaInicio(fechaInicio);
+            ina.setFechaFin(fechaFin);
+            ina.setMateria(materia);
+            ina.setGrupo(grupo);
+            ina.setCi(cedulaDocente);
+
+            fachada.guardarInaModificar2(ina);
+            
+//            aquí va lo de inasistenciasDocente
+//            idDocente=ina.getId();
+//            System.out.println("El id de la inasistencia es "+ idDocente);
+//            inaDoc.setCi(i.cedulaDocente);
+//            System.out.println("La cedula de la inasistencia es "+ inaDoc.getCi());
+//            inaDoc.setId(idDocente);
+
+//            fachada.guardarInaDocente(inaDoc);
+//            idGenerado = fachada.guardarIna(ina);
+             
+            JOptionPane.showMessageDialog(null, "Se ha guardado con éxito");
+            }catch (PersonaExcepcion ex){
+                JOptionPane.showMessageDialog(this, ex.getMessage());
+                JOptionPane.showMessageDialog(this, "No se pudo guardar los datos");
+            }catch (Exception ex){
+                System.getLogger(Registrar.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+            }
+        }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
@@ -160,10 +244,12 @@ public class Modificar2 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField txtFin;
+    private javax.swing.JTextField txtGrupo;
+    private javax.swing.JTextField txtInicio;
+    private javax.swing.JTextField txtMateria;
     // End of variables declaration//GEN-END:variables
 }

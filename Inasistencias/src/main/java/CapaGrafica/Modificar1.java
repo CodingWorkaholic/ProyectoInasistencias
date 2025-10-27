@@ -1,17 +1,33 @@
 package CapaGrafica;
 
 import CapaLogica.Docentes;
+import CapaLogica.DocentesDoc;
 import CapaLogica.DocentesList;
+import CapaLogica.fachadaPersona;
+import CapaPersistencia.guardarIna;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 public class Modificar1 extends javax.swing.JFrame {
     private String cedulaDocente;
-    DocentesList lista = new DocentesList();
-    Docentes doc= new Docentes();
+    fachadaPersona fachada=new fachadaPersona();
+    
+    
+    DefaultTableModel modelo;
     
     public Modificar1(String cedulaDoc) {
         initComponents();
         setLocationRelativeTo(null);
         this.cedulaDocente=cedulaDoc;
+        
+        modelo=new DefaultTableModel();
+        modelo.addColumn("ID");
+        modelo.addColumn("Materia");
+        modelo.addColumn("Incio");
+        modelo.addColumn("Fin");
+        modelo.addColumn("Grupo");
+        this.Tabla.setModel(modelo);
     }
 
     @SuppressWarnings("unchecked")
@@ -20,7 +36,7 @@ public class Modificar1 extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        Inasistencia = new javax.swing.JTable();
+        Tabla = new javax.swing.JTable();
         btnModificar = new javax.swing.JButton();
         btnVolver = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -31,35 +47,36 @@ public class Modificar1 extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(22, 33, 88));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Inasistencia.setBackground(new java.awt.Color(22, 33, 88));
-        Inasistencia.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 13)); // NOI18N
-        Inasistencia.setForeground(new java.awt.Color(22, 33, 88));
-        Inasistencia.setModel(new javax.swing.table.DefaultTableModel(
+        Tabla.setBackground(new java.awt.Color(22, 33, 88));
+        Tabla.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 13)); // NOI18N
+        Tabla.setForeground(new java.awt.Color(255, 255, 255));
+        Tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Materia", "Inicio", "Fin", "Grupo"
+                "ID", "Materia", "Inicio", "Fin", "Grupo"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        Inasistencia.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(Inasistencia);
-        if (Inasistencia.getColumnModel().getColumnCount() > 0) {
-            Inasistencia.getColumnModel().getColumn(0).setResizable(false);
-            Inasistencia.getColumnModel().getColumn(1).setResizable(false);
-            Inasistencia.getColumnModel().getColumn(2).setResizable(false);
-            Inasistencia.getColumnModel().getColumn(3).setResizable(false);
+        Tabla.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(Tabla);
+        if (Tabla.getColumnModel().getColumnCount() > 0) {
+            Tabla.getColumnModel().getColumn(0).setResizable(false);
+            Tabla.getColumnModel().getColumn(1).setResizable(false);
+            Tabla.getColumnModel().getColumn(2).setResizable(false);
+            Tabla.getColumnModel().getColumn(3).setResizable(false);
+            Tabla.getColumnModel().getColumn(4).setResizable(false);
         }
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, -1));
@@ -117,10 +134,19 @@ public class Modificar1 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+        int fila=Tabla.getSelectedRow();
+        if(fila>=0){
+            
+            Object objId=Tabla.getValueAt(fila, 0);
+            String id = String.valueOf(objId);
+        
         dispose();
         setVisible(false);
-        Modificar2 ingreso= new Modificar2();
+        Modificar2 ingreso= new Modificar2(cedulaDocente, id);
         ingreso.setVisible(true);
+        }else{
+            JOptionPane.showMessageDialog(this, "Ninguna fila seleccionada");
+        }
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
@@ -132,11 +158,35 @@ public class Modificar1 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVolverActionPerformed
 
     private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
-        // TODO add your handling code here:
+       
+        try {
+  
+        List<DocentesDoc> datos = fachada.cargarInasistenciasPorCedula(cedulaDocente);
+
+        if (datos.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "No hay inasistencias registradas.");
+            return;
+        }
+
+       
+        modelo.setRowCount(0);
+        for (DocentesDoc d : datos) {
+            modelo.addRow(new Object[]{
+                d.getId(),
+                d.getMateria(),
+                d.getInicio(),
+                d.getFin(),
+                d.getGrupo()
+            });
+        }
+    } catch (Exception ex) {
+        JOptionPane.showMessageDialog(this, "Error consultando inasistencias: " + ex.getMessage());
+        ex.printStackTrace();
+    }
     }//GEN-LAST:event_btnMostrarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable Inasistencia;
+    private javax.swing.JTable Tabla;
     private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnMostrar;
     private javax.swing.JButton btnVolver;

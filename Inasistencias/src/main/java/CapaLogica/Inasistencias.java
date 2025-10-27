@@ -1,8 +1,18 @@
 package CapaLogica;
 
 public class Inasistencias {
-    private String  fechaInicio, fechaFin, materia, grupo, ci;
+    private String  id, fechaInicio, fechaFin, materia, grupo, ci;
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+    
+    
+    
     public String getFechaInicio() {
         return fechaInicio;
     }

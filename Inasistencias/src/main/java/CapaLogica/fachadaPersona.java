@@ -17,10 +17,18 @@ public class fachadaPersona {
         //ini.idDocente=ina.getId();
         //return guardarIna(ina);
     }
-    public void cargarInasistenciasPorCedula(String ci) throws Exception {
-        // Llamamos al método consultaInaDoc y guardamos el resultado en memoria
-        List<Docentes> datos = per.consultaInaDoc(ci);
+    
+    public void guardarInaModificar2 (Inasistencias ina) throws Exception, SQLException{
+        guardarIna per= new guardarIna();
+        per.guardarInaModificar2(ina);
+        //ini.idDocente=ina.getId();
+        //return guardarIna(ina);
     }
+    
+    public List<DocentesDoc> cargarInasistenciasPorCedula(String ci) throws Exception {
+    guardarIna docs = new guardarIna();
+    return docs.consultaInaDoc(ci);
+}
     
 //    public Docentes busquedaIna (String ci) throws Exception, SQLException{
 //        Docentes doc= new Docentes();
@@ -36,9 +44,10 @@ public class fachadaPersona {
         return per;
     }
     
-    public void eliminarPer (String ci) throws PersonaExcepcion, BDException, SQLException, Exception { 
-        LogIn per= new LogIn();
-        guardarIna pers=new guardarIna();
+    public String eliminarIna (String id) throws PersonaExcepcion, BDException, SQLException, Exception { 
+        
+        guardarIna ina=new guardarIna();
+        return ina.eliminarIna(id);
         
     }
 }

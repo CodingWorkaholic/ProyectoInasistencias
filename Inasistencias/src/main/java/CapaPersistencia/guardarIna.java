@@ -24,6 +24,9 @@ public class guardarIna {
  
     private static final String SQL_GUARDAR =
         "INSERT INTO inasistencias.inasistencias(fechaInicio, fechaFin, materia, grupo, ci) VALUES (?,?,?,?,?)";
+    
+    private static final String SQL_GUARDAR_MODIFICAR2 =
+        "INSERT INTO inasistencias.inasistencias(id, fechaInicio, fechaFin, materia, grupo, ci) VALUES (?,?,?,?,?,?)";
 
     private static final String SQL_CONSULTA_INA =
         "SELECT doc.nombre, doc.apellido, ina.materia, ina.fechaInicio, ina.fechaFin, ina.grupo " +
@@ -31,7 +34,7 @@ public class guardarIna {
         "JOIN inasistencias.docentes doc ON ina.ci = doc.ci";
     
     private static final String SQL_CONSULTA_INA_DOCENTE =
-        "SELECT ina.materia, ina.fechaInicio, ina.fechaFin, ina.grupo " +
+        "SELECT ina.id, ina.materia, ina.fechaInicio, ina.fechaFin, ina.grupo " +
         "FROM inasistencias.inasistencias ina " +
         "WHERE ina.ci = ?";
 
@@ -52,6 +55,22 @@ public class guardarIna {
             ps.setString(3, ina.getMateria());
             ps.setString(4, ina.getGrupo());
             ps.setString(5, ina.getCi());
+            ps.executeUpdate();
+        } catch (SQLException sqle) {
+            throw new Exception("Error en base de datos", sqle);
+        }
+    }
+    
+    public void guardarInaModificar2(Inasistencias ina) throws Exception {
+        try (Connection con = cone.getConnection();
+             PreparedStatement ps = con.prepareStatement(SQL_GUARDAR_MODIFICAR2)) {
+            
+            ps.setString(1, ina.getId());
+            ps.setString(2, ina.getFechaInicio());
+            ps.setString(3, ina.getFechaFin());
+            ps.setString(4, ina.getMateria());
+            ps.setString(5, ina.getGrupo());
+            ps.setString(6, ina.getCi());
             ps.executeUpdate();
         } catch (SQLException sqle) {
             throw new Exception("Error en base de datos", sqle);
@@ -105,11 +124,11 @@ public class guardarIna {
     try (Connection con = cone.getConnection();
          PreparedStatement ps = con.prepareStatement(SQL_CONSULTA_INA_DOCENTE)) {
 
-        ps.setString(1, ci); 
-
+        ps.setString(1, ci);
         try (ResultSet rs = ps.executeQuery()) {
             while (rs.next()) {
                 DocentesDoc d = new DocentesDoc();
+                d.setId(rs.getString("id"));
                 d.setMateria(rs.getString("materia"));
                 d.setInicio(rs.getString("fechaInicio"));
                 d.setFin(rs.getString("fechaFin"));
@@ -123,17 +142,22 @@ public class guardarIna {
     return lista;
 }
 
+
     public String eliminarIna(String id) throws Exception {
         try (Connection con = cone.getConnection();
              PreparedStatement ps = con.prepareStatement(SQL_ELIMINAR_INA)) {
+            
+            System.out.println("Eliminando id: " + id);
 
-            ps.setString(1, id);
+            ps.setInt(1, Integer.parseInt(id));
             int filas = ps.executeUpdate();
             return (filas > 0) ? "Inasistencia eliminada" : "No se encontró la inasistencia";
         } catch (SQLException e) {
             throw new Exception("Error eliminando inasistencia", e);
         }
     }
+    
+    
 
 
 }
