@@ -27,6 +27,11 @@ public class Eliminar extends javax.swing.JFrame {
         modelo.addColumn("Fin");
         modelo.addColumn("Grupo");
         this.Tabla.setModel(modelo);
+        
+        Tabla.getColumnModel().getColumn(0).setMinWidth(0);
+        Tabla.getColumnModel().getColumn(0).setMaxWidth(0);
+        Tabla.getColumnModel().getColumn(0).setWidth(0);
+        Tabla.getColumnModel().getColumn(0).setPreferredWidth(0);
     }
 
     @SuppressWarnings("unchecked")
@@ -152,7 +157,7 @@ public class Eliminar extends javax.swing.JFrame {
                 
         
         }else{
-            JOptionPane.showMessageDialog(null, "DEBES SELECCIONAR AL MENOS UNA FILA");
+            JOptionPane.showMessageDialog(null, "Ninguna fila seleccionada");
         }
         
         
