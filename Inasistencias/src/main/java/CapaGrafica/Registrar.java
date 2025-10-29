@@ -76,7 +76,8 @@ public class Registrar extends javax.swing.JFrame {
         txtInicio.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel4.setBackground(new java.awt.Color(233, 233, 233));
-        jLabel4.setText("Año / mes / día Ej: 2025-02-01");
+        jLabel4.setForeground(new java.awt.Color(233, 233, 233));
+        jLabel4.setText("Año / Mes / Día Ej: 2025-02-01");
 
         jLabel5.setBackground(new java.awt.Color(233, 233, 233));
         jLabel5.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 36)); // NOI18N
@@ -128,9 +129,11 @@ public class Registrar extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(txtMateria, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
-                    .addComponent(txtGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(txtGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(15, 15, 15)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
