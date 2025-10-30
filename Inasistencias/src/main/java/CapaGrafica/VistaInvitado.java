@@ -31,6 +31,35 @@ public class VistaInvitado extends javax.swing.JFrame {
         modelo.addColumn("Fin");
         modelo.addColumn("Grupo");
         this.Tabla.setModel(modelo);
+        
+        try {
+      
+
+        
+        guardarIna dao = new guardarIna();
+        List<Docentes> datos = dao.consultaIna(); 
+
+        if (datos.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "No hay inasistencias registradas.");
+            return;
+        }
+
+       
+        modelo.setRowCount(0);
+        for (Docentes d : datos) {
+            modelo.addRow(new Object[]{
+                d.getNombre() + " " + d.getApellido(),
+                d.getMateria(),
+                d.getInicio(),
+                d.getFin(),
+                d.getGrupo()
+            });
+        }
+    } catch (Exception ex) {
+        JOptionPane.showMessageDialog(this, "Error consultando inasistencias: " + ex.getMessage());
+        ex.printStackTrace();
+    }
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -85,14 +114,14 @@ public class VistaInvitado extends javax.swing.JFrame {
 
         btnMostrar.setBackground(new java.awt.Color(143, 227, 255));
         btnMostrar.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 20)); // NOI18N
-        btnMostrar.setText("Mostrar Inasistencias");
+        btnMostrar.setText("Refrescar");
         btnMostrar.setAlignmentY(0.0F);
         btnMostrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMostrarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 460, 310, 60));
+        jPanel1.add(btnMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 460, 170, 60));
 
         btnVolver.setBackground(new java.awt.Color(143, 227, 255));
         btnVolver.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 20)); // NOI18N

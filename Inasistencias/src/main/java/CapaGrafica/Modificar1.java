@@ -33,6 +33,32 @@ public class Modificar1 extends javax.swing.JFrame {
         Tabla.getColumnModel().getColumn(0).setMaxWidth(0);
         Tabla.getColumnModel().getColumn(0).setWidth(0);
         Tabla.getColumnModel().getColumn(0).setPreferredWidth(0);
+        
+        try {
+  
+        List<DocentesDoc> datos = fachada.cargarInasistenciasPorCedula(cedulaDocente);
+
+        if (datos.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "No hay inasistencias registradas.");
+            return;
+        }
+
+       
+        modelo.setRowCount(0);
+        for (DocentesDoc d : datos) {
+            modelo.addRow(new Object[]{
+                d.getId(),
+                d.getMateria(),
+                d.getInicio(),
+                d.getFin(),
+                d.getGrupo()
+            });
+        }
+    } catch (Exception ex) {
+        JOptionPane.showMessageDialog(this, "Error consultando inasistencias: " + ex.getMessage());
+        ex.printStackTrace();
+    }
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -115,7 +141,7 @@ public class Modificar1 extends javax.swing.JFrame {
 
         btnMostrar.setBackground(new java.awt.Color(143, 227, 255));
         btnMostrar.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 20)); // NOI18N
-        btnMostrar.setText("Mostrar");
+        btnMostrar.setText("Refrescar");
         btnMostrar.setAlignmentY(0.0F);
         btnMostrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

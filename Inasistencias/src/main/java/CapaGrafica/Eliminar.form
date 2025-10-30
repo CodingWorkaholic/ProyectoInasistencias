@@ -177,7 +177,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Lucida Sans Unicode" size="20" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Mostrar"/>
+            <Property name="text" type="java.lang.String" value="Refrescar"/>
             <Property name="alignmentY" type="float" value="0.0"/>
           </Properties>
           <Events>

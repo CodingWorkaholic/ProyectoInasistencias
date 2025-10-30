@@ -194,22 +194,16 @@ public class Registrar extends javax.swing.JFrame {
 
             fachada.guardarIna(ina);
             
-//            aquí va lo de inasistenciasDocente
-//            idDocente=ina.getId();
-//            System.out.println("El id de la inasistencia es "+ idDocente);
-//            inaDoc.setCi(i.cedulaDocente);
-//            System.out.println("La cedula de la inasistencia es "+ inaDoc.getCi());
-//            inaDoc.setId(idDocente);
-
-//            fachada.guardarInaDocente(inaDoc);
-//            idGenerado = fachada.guardarIna(ina);
-             String idGeneradoS = Integer.toString(idGenerado);
-             System.out.println("El id de la inasistencia es "+idGeneradoS);
-             System.out.println("La cedula de la inasistencia es "+i.cedulaDocente);
-             inaDoc.setId(idGeneradoS);
-             inaDoc.setCi(i.cedulaDocente);
-
             JOptionPane.showMessageDialog(null, "Se ha guardado con éxito");
+            
+            dispose();
+        setVisible(false);
+        VistaDocente ingreso= new VistaDocente(cedulaDocente);
+        ingreso.setVisible(true);
+            
+
+
+            
             }catch (PersonaExcepcion ex){
                 JOptionPane.showMessageDialog(this, ex.getMessage());
                 JOptionPane.showMessageDialog(this, "No se pudo guardar los datos");
