@@ -110,7 +110,7 @@ public class Modificar1 extends javax.swing.JFrame {
             Tabla.getColumnModel().getColumn(4).setResizable(false);
         }
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, -1));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 420));
 
         btnModificar.setBackground(new java.awt.Color(143, 227, 255));
         btnModificar.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 20)); // NOI18N
@@ -121,7 +121,7 @@ public class Modificar1 extends javax.swing.JFrame {
                 btnModificarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 460, 160, 60));
+        jPanel1.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 460, 160, 60));
 
         btnVolver.setBackground(new java.awt.Color(143, 227, 255));
         btnVolver.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 20)); // NOI18N
@@ -137,7 +137,7 @@ public class Modificar1 extends javax.swing.JFrame {
         jLabel1.setBackground(new java.awt.Color(233, 233, 233));
         jLabel1.setForeground(new java.awt.Color(233, 233, 233));
         jLabel1.setText("Antes selecciona una tupla");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 520, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 520, -1, -1));
 
         btnMostrar.setBackground(new java.awt.Color(143, 227, 255));
         btnMostrar.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 20)); // NOI18N
@@ -158,7 +158,7 @@ public class Modificar1 extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 544, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 550, Short.MAX_VALUE)
         );
 
         pack();

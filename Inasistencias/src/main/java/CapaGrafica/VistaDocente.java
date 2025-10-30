@@ -25,7 +25,6 @@ public class VistaDocente extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Vista docente");
         setBackground(new java.awt.Color(22, 33, 88));
-        setPreferredSize(new java.awt.Dimension(1110, 550));
         setResizable(false);
         setSize(new java.awt.Dimension(1127, 733));
 
@@ -36,7 +35,7 @@ public class VistaDocente extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(233, 233, 233));
         jLabel1.setText("¿Cómo quieres gestionar tus inasistencias?");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 830, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, 830, -1));
 
         btnModificar.setBackground(new java.awt.Color(143, 227, 255));
         btnModificar.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 20)); // NOI18N
