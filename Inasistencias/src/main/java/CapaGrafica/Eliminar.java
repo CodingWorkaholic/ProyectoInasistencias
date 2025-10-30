@@ -137,8 +137,8 @@ public class Eliminar extends javax.swing.JFrame {
 
         jLabel1.setBackground(new java.awt.Color(233, 233, 233));
         jLabel1.setForeground(new java.awt.Color(233, 233, 233));
-        jLabel1.setText("Elimina tupla seleccionada");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 520, -1, -1));
+        jLabel1.setText("Antes selecciona una tupla");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 520, -1, -1));
 
         btnMostrar.setBackground(new java.awt.Color(143, 227, 255));
         btnMostrar.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 20)); // NOI18N

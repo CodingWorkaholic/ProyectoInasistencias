@@ -76,7 +76,8 @@ public class Modificar2 extends javax.swing.JFrame {
         txtInicio.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 12)); // NOI18N
         txtInicio.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jLabel4.setText("Año / mes / día Ej: 2025-02-01");
+        jLabel4.setForeground(new java.awt.Color(233, 233, 233));
+        jLabel4.setText("Año / Mes / Día Ej: 2025-02-01");
 
         jLabel5.setBackground(new java.awt.Color(233, 233, 233));
         jLabel5.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 36)); // NOI18N
@@ -134,8 +135,10 @@ public class Modificar2 extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
-                    .addComponent(txtGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(41, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(txtGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(14, 14, 14)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, 600, 330));
