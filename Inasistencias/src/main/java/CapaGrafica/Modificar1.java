@@ -170,10 +170,18 @@ public class Modificar1 extends javax.swing.JFrame {
             
             Object objId=Tabla.getValueAt(fila, 0);
             String id = String.valueOf(objId);
+            Object objMateria=Tabla.getValueAt(fila, 1);
+            String materia = String.valueOf(objMateria);
+            Object objInicio=Tabla.getValueAt(fila, 2);
+            String inicio = String.valueOf(objInicio);
+            Object objFin=Tabla.getValueAt(fila, 3);
+            String fin = String.valueOf(objFin);
+            Object objGrupo=Tabla.getValueAt(fila, 4);
+            String grupo = String.valueOf(objGrupo);
         
         dispose();
         setVisible(false);
-        Modificar2 ingreso= new Modificar2(cedulaDocente, id);
+        Modificar2 ingreso= new Modificar2(cedulaDocente, id, materia, inicio, fin, grupo);
         ingreso.setVisible(true);
         }else{
             JOptionPane.showMessageDialog(this, "Ninguna fila seleccionada");
