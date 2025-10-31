@@ -10,9 +10,14 @@ Requisitos para correr el programa:
 
 1 - Luego de descargar el [código](https://github.com/CodingWorkaholic/ProyectoInasistencias/tree/main/Inasistencias) Java, deberá preparar la base de datos. Para eso precisará descargar [xampp](https://www.apachefriends.org/es/index.html) (que contiene el sevidor de MySQL).
 
-2 - Deberá copiar la información del archivo [inasistencias.txt](https://github.com/CodingWorkaholic/ProyectoInasistencias/blob/main/inasistencias.txt) y pegarlo en phpMyAdmin para crear la base de datos.
+2 - Tendrá que, una vez instalado xampp, abiri la aplicación e iniciar el servidor de Apache y MySQL.
 
-3 - Una vez teniendo la base de datos y el código en Java, estará listo para correr el programa.
+3 - Deberá de acceder a internet y en el buscador escribir "[localhost](http://localhost/dashboard/index.html)".
+
+
+4 - Deberá acceder a la sección de [phpMyAdmin](http://localhost/phpmyadmin/) y copiar la información del archivo [inasistencias.txt](https://github.com/CodingWorkaholic/ProyectoInasistencias/blob/main/inasistencias.txt), para pegarlo en SQL y así crear la base de datos.
+
+5 - Una vez teniendo la base de datos y el código en Java, estará listo para correr el programa.
 
 ----------------------------------------------------------------------------------------------------------
 
