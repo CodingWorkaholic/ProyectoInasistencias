@@ -3,9 +3,8 @@ El programa cuenta con una base de de datos, la cual está hecha en MySQL, que l
 
 ------------------------------------------
 
-Requisitos previos:
+Requisitos para correr [Netbeans](https://manualjavaoracle.wordpress.com/2018/01/16/requisitos/) y [MySQL](https://www.buscaminegocio.com/dise%C3%B1o-web/que-se-necesita-para-tener-mysql.html)
 
-1 - 32 de ram
 
 Requisitos para correr el programa:
 
