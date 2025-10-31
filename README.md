@@ -8,7 +8,7 @@ Requisitos para correr [Netbeans](https://manualjavaoracle.wordpress.com/2018/01
 
 Requisitos para correr el programa:
 
-1 - Luego de descargar el código para correr el programa, deberá setupear la base de datos. Para eso precisará descargar xampp (que contiene el sevidor de [MySQL](https://www.apachefriends.org/es/index.html))
+1 - Luego de descargar el [código](https://github.com/CodingWorkaholic/ProyectoInasistencias/tree/main/Inasistencias) para correr el programa, deberá preparar la base de datos. Para eso precisará descargar [xampp](https://www.apachefriends.org/es/index.html) (que contiene el sevidor de MySQL)
 
 2 - Deberá de copiar la información del archivo inasistencias.txt y pegarlo en phpMyAdmin para crear la base de datos y todas las tablas.
 
