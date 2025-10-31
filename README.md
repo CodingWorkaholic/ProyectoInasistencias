@@ -16,4 +16,4 @@ Requisitos para correr el programa:
 
 ----------------------------------------------------------------------------------------------------------
 
-Grupo ChuMac de 2MA con integrantes: Alexander Bogorodskiy y Salvador Medina
+Grupo ChuMac de 2MA con integrantes: [Alexander Bogorodskiy](https://github.com/CodingWorkaholic) y [Salvador Medina](https://github.com/ThinkAholic)
