@@ -19,8 +19,10 @@ Requisitos para correr el programa:
 5 - Una vez teniendo la base de datos y el código en Java, estará listo para correr el programa.
 
 Algunos usuarios para iniciar sesión en el programa son:
+
 58046935 - alexbogo
 57909578 - salvamed
+
 Pero usted podrá agregar más usuarios desde la base de datos.
 
 ----------------------------------------------------------------------------------------------------------
