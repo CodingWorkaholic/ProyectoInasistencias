@@ -5,12 +5,11 @@ El programa cuenta con una base de de datos, la cual está hecha en MySQL, que l
 
 Requisitos para correr [Netbeans](https://manualjavaoracle.wordpress.com/2018/01/16/requisitos/) y [MySQL](https://www.buscaminegocio.com/dise%C3%B1o-web/que-se-necesita-para-tener-mysql.html)
 
-
 Requisitos para correr el programa:
 
 1 - Luego de descargar el [código](https://github.com/CodingWorkaholic/ProyectoInasistencias/tree/main/Inasistencias) Java, deberá preparar la base de datos. Para eso precisará descargar [xampp](https://www.apachefriends.org/es/index.html) (que contiene el sevidor de MySQL).
 
-2 - Tendrá que, una vez instalado xampp, abiri la aplicación e iniciar el servidor de Apache y MySQL.
+2 - Una vez instalado xampp, tendrá que abrir la aplicación e iniciar el servidor de Apache y MySQL.
 
 3 - Deberá de acceder a internet y en el buscador escribir "[localhost](http://localhost/dashboard/index.html)".
 
