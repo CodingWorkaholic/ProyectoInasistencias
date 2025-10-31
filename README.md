@@ -1,7 +1,7 @@
 Bienvenido a SPRIITI, un programa diseñado por estudiantes del ITI totalmente en Java para el registro de inasistencias de docentes de la institución.
 El programa cuenta con una base de de datos, la cual está hecha en MySQL, que le permite guardar las inasistencias.
 
-------------------------------------------
+----------------------------------------
 
 Requisitos para correr [Netbeans](https://manualjavaoracle.wordpress.com/2018/01/16/requisitos/) y [MySQL](https://www.buscaminegocio.com/dise%C3%B1o-web/que-se-necesita-para-tener-mysql.html)
 
@@ -25,7 +25,7 @@ Algunos usuarios para iniciar sesión en el programa son:
 
 Usted podrá agregar más usuarios desde la base de datos.
 
-----------------------------------------------------------------------------------------------------------
+----------------------------------------
 
 Grupo ChuMac de 2MA con integrantes: [Alexander Bogorodskiy](https://github.com/CodingWorkaholic) y [Salvador Medina](https://github.com/ThinkAholic)
 La participación ambos fue crucial para todas las partes del proyecto.
