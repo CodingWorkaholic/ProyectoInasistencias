@@ -3,12 +3,18 @@ El programa cuenta con una base de de datos, la cual está hecha en MySQL, que l
 
 ------------------------------------------
 
-Requisitos:
+Requisitos previos:
+
+1 - 32 de ram
+
+Requisitos para correr el programa:
 
 1 - Luego de descargar el código para correr el programa, deberá setupear la base de datos. Para eso precisará descargar xampp (que contiene el sevidor de [MySQL](https://www.apachefriends.org/es/index.html))
 
 2 - Deberá de copiar la información del archivo inasistencias.txt y pegarlo en phpMyAdmin para crear la base de datos y todas las tablas.
 
 3 - Una vez teniendo la base de datos y el código en java, estará listo para correr el programa.
+
 ----------------------------------------------------------------------------------------------------------
+
 Grupo ChuMac de 2MA con integrantes: Alexander Bogorodskiy y Salvador Medina
