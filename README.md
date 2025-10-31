@@ -18,7 +18,9 @@ Requisitos para correr el programa:
 5 - Listo! SPRIITI está listo para correr.
 
 Algunos usuarios para iniciar sesión en el programa son:
+
 58046935 - alexbogo
+
 57909578 - salvamed
 
 Usted podrá agregar más usuarios desde la base de datos.
