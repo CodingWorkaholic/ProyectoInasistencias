@@ -11,20 +11,17 @@ Requisitos para correr el programa:
 
 2 - Una vez instalado xampp, tendrá que abrir la aplicación e iniciar el servidor de Apache y MySQL.
 
-3 - Deberá de acceder a internet y en el buscador escribir "[localhost](http://localhost/dashboard/index.html)".
-
+3 - Deberá acceder a internet y buscar "[localhost](http://localhost/dashboard/index.html)".
 
 4 - Deberá acceder a la sección de [phpMyAdmin](http://localhost/phpmyadmin/) y copiar la información del archivo [inasistencias.txt](https://github.com/CodingWorkaholic/ProyectoInasistencias/blob/main/inasistencias.txt), para pegarlo en SQL y así crear la base de datos.
 
-5 - Una vez teniendo la base de datos y el código en Java, estará listo para correr el programa.
+5 - Listo! SPRIITI está listo para correr.
 
 Algunos usuarios para iniciar sesión en el programa son:
-
 58046935 - alexbogo
-
 57909578 - salvamed
 
-Pero usted podrá agregar más usuarios desde la base de datos.
+Usted podrá agregar más usuarios desde la base de datos.
 
 ----------------------------------------------------------------------------------------------------------
 
