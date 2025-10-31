@@ -21,6 +21,7 @@ Requisitos para correr el programa:
 Algunos usuarios para iniciar sesión en el programa son:
 
 58046935 - alexbogo
+
 57909578 - salvamed
 
 Pero usted podrá agregar más usuarios desde la base de datos.
